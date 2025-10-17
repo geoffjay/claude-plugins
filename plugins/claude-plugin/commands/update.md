@@ -1,8 +1,3 @@
----
-name: update
-description: Update an existing Claude Code plugin by adding, modifying, or removing components
----
-
 # Update Plugin Command
 
 Update an existing Claude Code plugin by adding new components, modifying existing ones, or removing obsolete components.
@@ -36,17 +31,20 @@ Update an existing Claude Code plugin by adding new components, modifying existi
 This command orchestrates plugin updates by:
 
 1. **Validating Input**
+
    - Verify plugin exists in `plugins/` directory
    - Validate operation type (add/modify/remove)
    - Ensure component type is valid
    - Check component existence for modify/remove operations
 
 2. **Gathering Requirements**
+
    - For **add**: collect new component details
    - For **modify**: identify what needs to change
    - For **remove**: confirm removal and check dependencies
 
 3. **Performing Update**
+
    - Use Task tool with subagent_type="claude-plugin" to execute changes
    - Create, modify, or remove component files
    - Maintain spec compliance and naming conventions
@@ -68,6 +66,7 @@ This command orchestrates plugin updates by:
 ### Step 1: Validate Plugin Exists
 
 Check that `plugins/$PLUGIN_NAME/` exists:
+
 - If not found: Error "Plugin '$PLUGIN_NAME' not found. Use /create to create new plugins."
 - If found: Continue to operation validation
 
@@ -76,17 +75,20 @@ Check that `plugins/$PLUGIN_NAME/` exists:
 Based on `$2` operation type:
 
 #### Add Operation
+
 - Create new component in existing plugin
 - Component name can be provided in `$4` or prompted
 - Gather full component specifications
 
 #### Modify Operation
+
 - Update existing component
 - Component name must be provided in `$4`
 - Verify component file exists
 - Ask what needs to be changed
 
 #### Remove Operation
+
 - Delete existing component
 - Component name must be provided in `$4`
 - Verify component file exists
@@ -149,11 +151,13 @@ Please:
 After component update:
 
 1. **Update Marketplace**
+
    - Invoke marketplace-update skill
    - Update plugin entry with new component list
    - Update version if needed
 
 2. **Update Documentation**
+
    - Invoke documentation-update skill
    - Regenerate affected documentation files
 
@@ -165,6 +169,7 @@ After component update:
 ### Step 5: Confirm Success
 
 Report to the user:
+
 - ✓ Operation completed: [$OPERATION $COMPONENT_TYPE $COMPONENT_NAME]
 - ✓ Plugin updated at `plugins/$PLUGIN_NAME/`
 - ✓ Marketplace updated
@@ -178,6 +183,7 @@ Report to the user:
 When adding a new component:
 
 **For Agents:**
+
 - Prompt for agent name (hyphen-case)
 - Prompt for purpose and description
 - Prompt for model selection (haiku/sonnet)
@@ -185,12 +191,14 @@ When adding a new component:
 - Create `plugins/$PLUGIN_NAME/agents/$AGENT_NAME.md`
 
 **For Commands:**
+
 - Prompt for command name (hyphen-case)
 - Prompt for purpose and description
 - Prompt for arguments and workflow
 - Create `plugins/$PLUGIN_NAME/commands/$COMMAND_NAME.md`
 
 **For Skills:**
+
 - Prompt for skill name (hyphen-case)
 - Prompt for description with "Use when" trigger
 - Prompt for asset requirements
@@ -204,11 +212,13 @@ When adding a new component:
 When modifying an existing component:
 
 1. **Read Current Component**
+
    - Load existing file
    - Parse frontmatter and content
    - Show current structure to user
 
 2. **Identify Changes**
+
    - Ask user what needs to change:
      - Update description
      - Change model (agents only)
@@ -217,6 +227,7 @@ When modifying an existing component:
      - Add/remove sections
 
 3. **Apply Changes**
+
    - Update file maintaining structure
    - Preserve frontmatter format
    - Update version if significant changes
@@ -231,16 +242,19 @@ When modifying an existing component:
 When removing a component:
 
 1. **Confirm Removal**
+
    - Show component details
    - Ask user to confirm deletion
    - Warn about potential impacts
 
 2. **Check Dependencies**
+
    - Search for references to this component
    - Warn if other plugins depend on it
    - List commands that invoke this agent (if removing agent)
 
 3. **Execute Removal**
+
    - Delete component file
    - Remove from marketplace entry
    - Clean up orphaned directories
@@ -258,6 +272,7 @@ When removing a component:
 ```
 
 This would:
+
 - Verify `plugins/golang-development/` exists
 - Prompt for agent details (description, model, capabilities)
 - Create `plugins/golang-development/agents/gin-expert.md`
@@ -271,6 +286,7 @@ This would:
 ```
 
 This would:
+
 - Load existing `plugins/security-scanning/commands/sast-scan.md`
 - Show current configuration
 - Ask what needs to change
@@ -284,6 +300,7 @@ This would:
 ```
 
 This would:
+
 - Confirm removal
 - Check for dependencies
 - Delete `plugins/kubernetes-operations/skills/helm-charts/`
@@ -297,6 +314,7 @@ This would:
 ```
 
 This would:
+
 - Use provided configuration
 - Create agent with Sonnet model
 - Generate comprehensive system prompt
@@ -307,32 +325,44 @@ This would:
 Common issues and resolutions:
 
 ### Plugin Not Found
+
 If `plugins/$PLUGIN_NAME/` doesn't exist:
+
 - Error: "Plugin '$PLUGIN_NAME' not found. Use /create to create new plugins."
 - List available plugins
 
 ### Component Already Exists (Add)
+
 If trying to add a component that exists:
+
 - Error: "Component '$COMPONENT_NAME' already exists. Use 'modify' operation to update it."
 - Show current component details
 
 ### Component Not Found (Modify/Remove)
+
 If component doesn't exist:
+
 - Error: "Component '$COMPONENT_NAME' not found in plugin '$PLUGIN_NAME'."
 - List available components in plugin
 
 ### Invalid Operation
+
 If `$2` is not add/modify/remove:
+
 - Error: "Invalid operation. Must be: add, modify, or remove"
 - Show usage examples
 
 ### Removing Last Component
+
 If removing the last agent and command:
+
 - Warning: "This is the last component in the plugin. Removing it will leave an empty plugin."
 - Confirm: "Do you want to remove the entire plugin?"
 
 ### Dependencies Detected (Remove)
+
 If other components reference the component being removed:
+
 - Warning: "The following components reference '$COMPONENT_NAME': [list]"
 - Confirm: "Proceed with removal? You may need to update dependent components."
 
@@ -341,12 +371,14 @@ If other components reference the component being removed:
 When updating plugins:
 
 ### Minor Updates
+
 - Adding new components
 - Enhancing existing components
 - Adding examples or documentation
 - Increment patch version (1.0.0 → 1.0.1)
 
 ### Major Updates
+
 - Modifying component interfaces
 - Changing agent models
 - Removing components

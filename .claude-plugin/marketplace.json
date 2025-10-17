@@ -23,7 +23,7 @@
       "repository": "https://github.com/geoffjay/claude-plugins",
       "license": "MIT",
       "keywords": ["ai", "plugin", "generation"],
-      "category": "documentation",
+      "category": "plugin",
       "strict": false,
       "commands": ["./commands/create.md", "./commands/update.md"],
       "agents": ["./agents/plugin-architect.md"],

@@ -1,8 +1,3 @@
----
-name: create
-description: Create a new Claude Code plugin with agents, commands, and/or skills
----
-
 # Create Plugin Command
 
 Create a new Claude Code plugin following granular, composable architecture principles.
@@ -32,22 +27,26 @@ Create a new Claude Code plugin following granular, composable architecture prin
 This command orchestrates plugin creation by:
 
 1. **Validating Input**
+
    - Verify plugin name follows hyphen-case convention
    - Ensure plugin doesn't already exist
    - Validate component specifications
 
 2. **Gathering Requirements**
+
    - If components not specified, ask user what to create
    - Request additional details about agents (names, purposes, models)
    - Request command details (names, purposes, workflows)
    - Request skill details (names, triggers, content structure)
 
 3. **Creating Plugin Structure**
+
    - Create plugin directory: `plugins/$PLUGIN_NAME/`
    - Create component directories as needed
    - Set up skill subdirectories (SKILL.md, assets/, references/)
 
 4. **Generating Components**
+
    - Use Task tool with subagent_type="claude-plugin" to design and implement components
    - Create agent files with proper frontmatter
    - Create command files with argument handling
@@ -69,6 +68,7 @@ This command orchestrates plugin creation by:
 ### Step 1: Validate Plugin Name
 
 The plugin name must:
+
 - Be in hyphen-case format (e.g., `my-plugin-name`)
 - Not already exist in `plugins/` directory
 - Be descriptive and focused on a single purpose
@@ -80,6 +80,7 @@ If components are not specified in `$3`, ask the user:
 **"What components should this plugin include?"**
 
 Options:
+
 - **Agents** - Specialized domain experts with deep knowledge
 - **Commands** - Tools and workflow automation
 - **Skills** - Modular knowledge packages with progressive disclosure
@@ -91,6 +92,7 @@ The plugin must have at least one agent OR one command.
 For each component type selected:
 
 #### Agents
+
 - Agent name (hyphen-case)
 - Agent purpose and description
 - Recommended model (haiku for deterministic tasks, sonnet for complex reasoning)
@@ -98,6 +100,7 @@ For each component type selected:
 - Example use cases
 
 #### Commands
+
 - Command name (hyphen-case)
 - Command purpose and description
 - Expected arguments
@@ -105,6 +108,7 @@ For each component type selected:
 - Integration points
 
 #### Skills
+
 - Skill name (hyphen-case)
 - Skill description with "Use when" trigger
 - Progressive disclosure structure
@@ -136,10 +140,12 @@ Create all necessary files with proper frontmatter, documentation, and examples.
 After plugin creation:
 
 1. **Update Marketplace**
+
    - Invoke the marketplace-update skill
    - Provide plugin details for marketplace.json entry
 
 2. **Update Documentation**
+
    - Invoke the documentation-update skill
    - Regenerate agent-skills.md, agents.md, plugins.md, usage.md
 
@@ -151,6 +157,7 @@ After plugin creation:
 ### Step 6: Confirm Success
 
 Report to the user:
+
 - ✓ Plugin created at `plugins/$PLUGIN_NAME/`
 - ✓ Components created: [list]
 - ✓ Marketplace updated
@@ -166,6 +173,7 @@ Report to the user:
 ```
 
 This would:
+
 - Create `plugins/rust-development/`
 - Prompt for agent details (e.g., rust-pro agent)
 - Prompt for command details (e.g., rust-scaffold command)
@@ -180,6 +188,7 @@ This would:
 ```
 
 This would:
+
 - Create `plugins/security-scanning/`
 - Prompt for security agent details
 - Prompt for scanning command details
@@ -193,6 +202,7 @@ This would:
 ```
 
 This would:
+
 - Create `plugins/test-helper/`
 - Prompt for command details only
 - Generate command file
@@ -203,22 +213,30 @@ This would:
 Common issues and resolutions:
 
 ### Plugin Already Exists
+
 If `plugins/$PLUGIN_NAME/` exists:
+
 - Error: "Plugin '$PLUGIN_NAME' already exists. Use /update to modify existing plugins."
 - Suggest using `/update` command instead
 
 ### Invalid Plugin Name
+
 If plugin name is not hyphen-case:
+
 - Error: "Plugin name must be in hyphen-case format (e.g., 'my-plugin-name')"
 - Suggest correct format
 
 ### No Components Specified
+
 If user doesn't specify components and doesn't respond to prompts:
+
 - Error: "At least one component (agent or command) is required"
 - Prompt again with clear options
 
 ### Missing Required Arguments
+
 If `$1` or `$2` are not provided:
+
 - Error: "Usage: /create <plugin-name> <description> [components] [config]"
 - Show examples
 

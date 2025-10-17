@@ -4,9 +4,9 @@ This document catalogs all agent skills with progressive disclosure patterns acr
 
 ## Overview
 
-- **Total Skills**: 2
-- **Total Plugins**: 1
-- **Last Updated**: 2025-10-17 13:44:36
+- **Total Skills**: 5
+- **Total Plugins**: 2
+- **Last Updated**: 2025-10-17 14:16:39
 
 ---
 
@@ -63,6 +63,73 @@ Regenerates documentation files (agents.md, agent-skills.md, plugins.md, usage.m
 
 
 
+
+
+
+
+
+
+---
+
+
+## golang-development
+
+**Description**: Experienced Go development patterns and tools
+
+**Version**: 1.0.0
+
+
+**Skills**:
+
+
+
+
+
+
+
+### go-patterns
+
+Modern Go patterns, idioms, and best practices from Go 1.18+. Use when user needs guidance on idiomatic Go code, design patterns, or modern Go features like generics and workspaces.
+
+**Location**: `plugins/golang-development/skills/go-patterns/`
+
+**Structure**:
+- `SKILL.md` - Skill definition with frontmatter
+- `assets/` - Templates, configurations, examples
+- `references/` - Additional documentation
+
+
+
+
+### go-concurrency
+
+Advanced concurrency patterns with goroutines, channels, context, and synchronization primitives. Use when working with concurrent Go code, implementing parallel processing, or debugging race conditions.
+
+**Location**: `plugins/golang-development/skills/go-concurrency/`
+
+**Structure**:
+- `SKILL.md` - Skill definition with frontmatter
+- `assets/` - Templates, configurations, examples
+- `references/` - Additional documentation
+
+
+
+
+### go-optimization
+
+Performance optimization techniques including profiling, memory management, benchmarking, and runtime tuning. Use when optimizing Go code performance, reducing memory usage, or analyzing bottlenecks.
+
+**Location**: `plugins/golang-development/skills/go-optimization/`
+
+**Structure**:
+- `SKILL.md` - Skill definition with frontmatter
+- `assets/` - Templates, configurations, examples
+- `references/` - Additional documentation
+
+
+
+
+
 ---
 
 
@@ -82,4 +149,4 @@ Skills are automatically invoked by agents when their trigger conditions are met
 ---
 
 *This documentation is automatically generated from the marketplace catalog.*
-*Last updated: 2025-10-17 13:44:36*
+*Last updated: 2025-10-17 14:16:39*

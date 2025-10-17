@@ -32,6 +32,37 @@
         "./commands/documentation.md"
       ],
       "skills": ["./skills/marketplace-update", "./skills/documentation-update"]
+    },
+    {
+      "name": "golang-development",
+      "source": "./plugins/golang-development",
+      "description": "Experienced Go development patterns and tools",
+      "version": "1.0.0",
+      "author": {
+        "name": "Geoff Johnson",
+        "url": "https://github.com/geoffjay"
+      },
+      "homepage": "https://github.com/geoffjay/claude-plugins",
+      "repository": "https://github.com/geoffjay/claude-plugins",
+      "license": "MIT",
+      "keywords": ["golang", "go", "development", "patterns", "performance", "concurrency"],
+      "category": "languages",
+      "strict": false,
+      "agents": [
+        "./agents/golang-pro.md",
+        "./agents/go-architect.md",
+        "./agents/go-performance.md"
+      ],
+      "commands": [
+        "./commands/scaffold.md",
+        "./commands/review.md",
+        "./commands/test.md"
+      ],
+      "skills": [
+        "./skills/go-patterns",
+        "./skills/go-concurrency",
+        "./skills/go-optimization"
+      ]
     }
   ]
 }

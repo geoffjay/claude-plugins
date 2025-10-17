@@ -4,12 +4,12 @@ Comprehensive guide for using Claude Code plugins, agents, commands, and skills 
 
 ## Overview
 
-This marketplace provides 1 plugin(s) with:
-- 1 specialized agent(s)
-- 3 command(s)
-- 2 skill(s)
+This marketplace provides 2 plugin(s) with:
+- 4 specialized agent(s)
+- 6 command(s)
+- 5 skill(s)
 
-**Last Updated**: 2025-10-17 13:44:36
+**Last Updated**: 2025-10-17 14:16:39
 
 ---
 
@@ -51,6 +51,18 @@ Commands are slash commands for specific workflows:
   - Plugin: claude-plugin
   - File: `plugins/claude-plugin/commands/documentation.md`
 
+- `golang-development:scaffold` - Scaffold new Go projects with modern structure, Go modules, testing setup, CI/CD pipelines, and best practices
+  - Plugin: golang-development
+  - File: `plugins/golang-development/commands/scaffold.md`
+
+- `golang-development:review` - Review Go code for idiomatic patterns, performance issues, security vulnerabilities, and common pitfalls with actionable suggestions
+  - Plugin: golang-development
+  - File: `plugins/golang-development/commands/review.md`
+
+- `golang-development:test` - Generate comprehensive tests including unit tests, table-driven tests, benchmarks, and examples with high coverage
+  - Plugin: golang-development
+  - File: `plugins/golang-development/commands/test.md`
+
 
 ### Using Skills
 
@@ -70,6 +82,18 @@ Skills are automatically invoked by agents when their trigger conditions are met
 - `documentation-update` - Regenerates documentation files (agents.md, agent-skills.md, plugins.md, usage.md) from marketplace data using Jinja templates. Use when plugins are added, updated, or removed to keep documentation in sync.
   - Plugin: claude-plugin
   - Path: `plugins/claude-plugin/skills/documentation-update/`
+
+- `go-patterns` - Modern Go patterns, idioms, and best practices from Go 1.18+. Use when user needs guidance on idiomatic Go code, design patterns, or modern Go features like generics and workspaces.
+  - Plugin: golang-development
+  - Path: `plugins/golang-development/skills/go-patterns/`
+
+- `go-concurrency` - Advanced concurrency patterns with goroutines, channels, context, and synchronization primitives. Use when working with concurrent Go code, implementing parallel processing, or debugging race conditions.
+  - Plugin: golang-development
+  - Path: `plugins/golang-development/skills/go-concurrency/`
+
+- `go-optimization` - Performance optimization techniques including profiling, memory management, benchmarking, and runtime tuning. Use when optimizing Go code performance, reducing memory usage, or analyzing bottlenecks.
+  - Plugin: golang-development
+  - Path: `plugins/golang-development/skills/go-optimization/`
 
 
 ---
@@ -158,6 +182,30 @@ Each plugin must have:
 - **Invocation**: `Use Task tool with subagent_type="plugin-architect"`
 
 
+#### golang-pro
+
+- **Plugin**: golang-development
+- **Model**: claude-sonnet-4-20250514
+- **Description**: Master Go 1.21+ with modern patterns, advanced concurrency, performance optimization, and production-ready microservices. Expert in the latest Go ecosystem including generics, workspaces, and cutting-edge frameworks. Use PROACTIVELY for Go development, architecture design, or performance optimization.
+- **Invocation**: `Use Task tool with subagent_type="golang-pro"`
+
+
+#### go-architect
+
+- **Plugin**: golang-development
+- **Model**: claude-sonnet-4-20250514
+- **Description**: System architect specializing in Go microservices, distributed systems, and production-ready architecture. Expert in scalability, reliability, observability, and cloud-native patterns. Use PROACTIVELY for architecture design, system design reviews, or scaling strategies.
+- **Invocation**: `Use Task tool with subagent_type="go-architect"`
+
+
+#### go-performance
+
+- **Plugin**: golang-development
+- **Model**: claude-sonnet-4-20250514
+- **Description**: Performance optimization specialist focusing on profiling, benchmarking, memory management, and Go runtime tuning. Expert in identifying bottlenecks and implementing high-performance solutions. Use PROACTIVELY for performance optimization, memory profiling, or benchmark analysis.
+- **Invocation**: `Use Task tool with subagent_type="go-performance"`
+
+
 
 ### Model Selection
 
@@ -238,6 +286,13 @@ Plugins are organized by category:
 
 
 
+### Languages
+
+
+- **golang-development** - Experienced Go development patterns and tools
+
+
+
 
 ---
 
@@ -259,4 +314,4 @@ Plugins are organized by category:
 ---
 
 *This documentation is automatically generated from the marketplace catalog.*
-*Last updated: 2025-10-17 13:44:36*
+*Last updated: 2025-10-17 14:16:39*

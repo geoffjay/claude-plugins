@@ -4,11 +4,11 @@ Complete catalog of all plugins available in the marketplace.
 
 ## Overview
 
-- **Total Plugins**: 1
-- **Total Agents**: 1
-- **Total Commands**: 3
-- **Total Skills**: 2
-- **Last Updated**: 2025-10-17 13:44:36
+- **Total Plugins**: 2
+- **Total Agents**: 4
+- **Total Commands**: 6
+- **Total Skills**: 5
+- **Last Updated**: 2025-10-17 14:16:39
 
 ---
 
@@ -55,6 +55,48 @@ Plugin management and scaffolding tools for creating and maintaining Claude Code
 
 
 
+## Languages
+
+
+### golang-development
+
+Experienced Go development patterns and tools
+
+**Version**: 1.0.0
+
+**Author**: Geoff Johnson
+
+**License**: MIT
+
+
+**Keywords**: golang, go, development, patterns, performance, concurrency
+
+
+**Components**:
+
+- **Agents**: 3
+
+
+- **Commands**: 3
+
+
+- **Skills**: 3
+
+
+**Location**: `./plugins/golang-development`
+
+
+**Homepage**: https://github.com/geoffjay/claude-plugins
+
+
+
+**Repository**: https://github.com/geoffjay/claude-plugins
+
+
+---
+
+
+
 
 ## Plugin Architecture
 
@@ -81,8 +123,10 @@ Plugins are organized into the following categories:
 
 - **Plugin-Management**: 1 plugin(s)
 
+- **Languages**: 1 plugin(s)
+
 
 ---
 
 *This documentation is automatically generated from the marketplace catalog.*
-*Last updated: 2025-10-17 13:44:36*
+*Last updated: 2025-10-17 14:16:39*

@@ -14,6 +14,13 @@ from datetime import datetime
 from typing import Dict, List, Any, Optional
 import argparse
 
+# Try to use real Jinja2 if available, otherwise use SimpleTemplate fallback
+try:
+    from jinja2 import Template as Jinja2Template
+    USE_JINJA2 = True
+except ImportError:
+    USE_JINJA2 = False
+
 
 class SimpleTemplate:
     """Minimal Jinja2-like template engine"""
@@ -21,65 +28,201 @@ class SimpleTemplate:
     def __init__(self, template_str: str):
         self.template = template_str
 
+    def apply_filter(self, value: Any, filter_name: str) -> Any:
+        """Apply a filter to a value"""
+        if filter_name == 'title':
+            return str(value).replace('-', ' ').replace('_', ' ').title()
+        elif filter_name == 'length':
+            return len(value) if hasattr(value, '__len__') else 0
+        elif filter_name.startswith('join'):
+            # Extract separator from filter (e.g., "join(', ')")
+            match = re.search(r"join\(['\"]([^'\"]*)['\"]\)", filter_name)
+            if match and isinstance(value, list):
+                separator = match.group(1)
+                return separator.join(str(v) for v in value)
+            return str(value)
+        return value
+
+    def resolve_value(self, expr: str, context: Dict[str, Any]) -> Any:
+        """Resolve a variable expression with optional filters"""
+        # Split expression and filters
+        parts = expr.strip().split('|')
+        var_expr = parts[0].strip()
+        filters = [f.strip() for f in parts[1:]]
+
+        # Resolve the base variable
+        value = context
+        for key in var_expr.split('.'):
+            key = key.strip()
+            if isinstance(value, dict):
+                value = value.get(key, '')
+            elif hasattr(value, key):
+                value = getattr(value, key)
+            else:
+                value = ''
+                break
+
+        # Apply filters
+        for filter_name in filters:
+            value = self.apply_filter(value, filter_name)
+
+        return value
+
     def render(self, context: Dict[str, Any]) -> str:
         """Render template with context"""
         result = self.template
 
-        # Replace simple variables: {{ variable }}
-        for key, value in context.items():
-            result = result.replace(f"{{{{ {key} }}}}", str(value))
+        # Handle nested loops with .items(): {% for key, value in dict.items() %}...{% endfor %}
+        items_pattern = r'{%\s*for\s+(\w+)\s*,\s*(\w+)\s+in\s+([\w.]+)\.items\(\)\s*%}(.*?){%\s*endfor\s*%}'
 
-        # Handle loops: {% for item in items %}...{% endfor %}
-        for_pattern = r'{%\s*for\s+(\w+)\s+in\s+(\w+)\s*%}(.*?){%\s*endfor\s*%}'
+        def replace_items_loop(match):
+            key_var = match.group(1)
+            value_var = match.group(2)
+            dict_name = match.group(3)
+            loop_body = match.group(4)
+
+            dict_obj = self.resolve_value(dict_name, context)
+            if not isinstance(dict_obj, dict):
+                return ""
+
+            output = []
+            for key, value in dict_obj.items():
+                loop_context = context.copy()
+                loop_context[key_var] = key
+                loop_context[value_var] = value
+
+                # Recursively render the loop body
+                template = SimpleTemplate(loop_body)
+                body_result = template.render(loop_context)
+                output.append(body_result)
+
+            return "".join(output)
+
+        result = re.sub(items_pattern, replace_items_loop, result, flags=re.DOTALL)
+
+        # Handle loops with .keys(): {% for key in dict.keys() %}...{% endfor %}
+        keys_pattern = r'{%\s*for\s+(\w+)\s+in\s+([\w.]+)\.keys\(\)\s*%}(.*?){%\s*endfor\s*%}'
+
+        def replace_keys_loop(match):
+            var_name = match.group(1)
+            dict_name = match.group(2)
+            loop_body = match.group(3)
+
+            dict_obj = self.resolve_value(dict_name, context)
+            if not isinstance(dict_obj, dict):
+                return ""
+
+            output = []
+            for key in dict_obj.keys():
+                loop_context = context.copy()
+                loop_context[var_name] = key
+
+                # Recursively render the loop body
+                template = SimpleTemplate(loop_body)
+                body_result = template.render(loop_context)
+                output.append(body_result)
+
+            return "".join(output)
+
+        result = re.sub(keys_pattern, replace_keys_loop, result, flags=re.DOTALL)
+
+        # Handle regular loops: {% for item in items %}...{% endfor %}
+        for_pattern = r'{%\s*for\s+(\w+)\s+in\s+([\w.]+)\s*%}(.*?){%\s*endfor\s*%}'
 
         def replace_for(match):
             var_name = match.group(1)
             list_name = match.group(2)
             loop_body = match.group(3)
 
-            if list_name not in context:
+            items = self.resolve_value(list_name, context)
+            if not isinstance(items, (list, dict)):
                 return ""
 
-            items = context[list_name]
-            if not isinstance(items, list):
-                return ""
+            # Handle both lists and dict values
+            if isinstance(items, dict):
+                items = list(items.values())
 
             output = []
             for item in items:
-                # Create loop context
                 loop_context = context.copy()
                 loop_context[var_name] = item
 
-                # Replace variables in loop body
-                body_result = loop_body
+                # If item is a dict, also add its keys directly to context for easier access
                 if isinstance(item, dict):
-                    for k, v in item.items():
-                        body_result = body_result.replace(
-                            f"{{{{ {var_name}.{k} }}}}", str(v)
-                        )
-                else:
-                    body_result = body_result.replace(
-                        f"{{{{ {var_name} }}}}", str(item)
-                    )
+                    for key, value in item.items():
+                        loop_context[f"{var_name}.{key}"] = value
 
+                # Recursively render the loop body
+                template = SimpleTemplate(loop_body)
+                body_result = template.render(loop_context)
                 output.append(body_result)
 
             return "".join(output)
 
         result = re.sub(for_pattern, replace_for, result, flags=re.DOTALL)
 
-        # Handle conditionals: {% if condition %}...{% endif %}
-        if_pattern = r'{%\s*if\s+(\w+)\s*%}(.*?){%\s*endif\s*%}'
+        # Handle conditionals with comparison: {% if var1 == var2 %}...{% endif %}
+        if_compare_pattern = r'{%\s*if\s+([\w.]+)\s*==\s*([\w.]+)\s*%}(.*?){%\s*endif\s*%}'
+
+        def replace_if_compare(match):
+            left_expr = match.group(1)
+            right_expr = match.group(2)
+            body = match.group(3)
+
+            left_val = self.resolve_value(left_expr, context)
+            right_val = self.resolve_value(right_expr, context)
+
+            if left_val == right_val:
+                template = SimpleTemplate(body)
+                return template.render(context)
+            return ""
+
+        result = re.sub(if_compare_pattern, replace_if_compare, result, flags=re.DOTALL)
+
+        # Handle conditionals with else: {% if condition %}...{% else %}...{% endif %}
+        if_else_pattern = r'{%\s*if\s+([\w.]+)\s*%}(.*?){%\s*else\s*%}(.*?){%\s*endif\s*%}'
+
+        def replace_if_else(match):
+            condition = match.group(1)
+            true_body = match.group(2)
+            false_body = match.group(3)
+
+            cond_val = self.resolve_value(condition, context)
+
+            if cond_val:
+                template = SimpleTemplate(true_body)
+                return template.render(context)
+            else:
+                template = SimpleTemplate(false_body)
+                return template.render(context)
+
+        result = re.sub(if_else_pattern, replace_if_else, result, flags=re.DOTALL)
+
+        # Handle simple conditionals: {% if condition %}...{% endif %}
+        if_pattern = r'{%\s*if\s+([\w.]+)\s*%}(.*?){%\s*endif\s*%}'
 
         def replace_if(match):
             condition = match.group(1)
             body = match.group(2)
 
-            if condition in context and context[condition]:
-                return body
+            cond_val = self.resolve_value(condition, context)
+
+            if cond_val:
+                template = SimpleTemplate(body)
+                return template.render(context)
             return ""
 
         result = re.sub(if_pattern, replace_if, result, flags=re.DOTALL)
+
+        # Replace variables with filters: {{ variable|filter }}
+        var_pattern = r'{{\s*([\w.|()\'",\s]+)\s*}}'
+
+        def replace_var(match):
+            expr = match.group(1)
+            value = self.resolve_value(expr, context)
+            return str(value) if value is not None else ''
+
+        result = re.sub(var_pattern, replace_var, result)
 
         # Clean up any remaining template syntax
         result = re.sub(r'{%.*?%}', '', result)
@@ -233,8 +376,14 @@ class DocGenerator:
         with open(template_path, 'r') as f:
             template_content = f.read()
 
-        template = SimpleTemplate(template_content)
-        return template.render(context)
+        if USE_JINJA2:
+            # Use real Jinja2 for full compatibility
+            template = Jinja2Template(template_content)
+            return template.render(**context)
+        else:
+            # Fallback to SimpleTemplate
+            template = SimpleTemplate(template_content)
+            return template.render(context)
 
     def generate_all(self, dry_run: bool = False, specific_file: Optional[str] = None) -> None:
         """Generate all documentation files"""

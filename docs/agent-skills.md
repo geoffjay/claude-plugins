@@ -4,9 +4,9 @@ This document catalogs all agent skills with progressive disclosure patterns acr
 
 ## Overview
 
-- **Total Skills**:
-- **Total Plugins**:
-- **Last Updated**: 2025-10-17 12:09:34
+- **Total Skills**: 2
+- **Total Plugins**: 1
+- **Last Updated**: 2025-10-17 13:44:36
 
 ---
 
@@ -22,41 +22,50 @@ All skills follow the [Anthropic Agent Skills Specification](https://github.com/
 
 ---
 
-##
 
-**Description**:
+## claude-plugin
 
-**Version**:
+**Description**: Plugin management and scaffolding tools for creating and maintaining Claude Code plugins
+
+**Version**: 1.0.0
+
 
 **Skills**:
+
+
 
 ### marketplace-update
 
 Updates the .claude-plugin/marketplace.json file when plugins are added, modified, or removed. Use when creating or updating plugin entries in the marketplace catalog.
 
-**Location**: `plugins//skills/marketplace-update/`
+**Location**: `plugins/claude-plugin/skills/marketplace-update/`
 
 **Structure**:
-
 - `SKILL.md` - Skill definition with frontmatter
 - `assets/` - Templates, configurations, examples
 - `references/` - Additional documentation
+
+
+
 
 ### documentation-update
 
 Regenerates documentation files (agents.md, agent-skills.md, plugins.md, usage.md) from marketplace data using Jinja templates. Use when plugins are added, updated, or removed to keep documentation in sync.
 
-**Location**: `plugins//skills/documentation-update/`
+**Location**: `plugins/claude-plugin/skills/documentation-update/`
 
 **Structure**:
-
 - `SKILL.md` - Skill definition with frontmatter
 - `assets/` - Templates, configurations, examples
 - `references/` - Additional documentation
 
-_No skills defined_
+
+
+
 
 ---
+
+
 
 ## Progressive Disclosure Benefits
 
@@ -72,5 +81,5 @@ Skills are automatically invoked by agents when their trigger conditions are met
 
 ---
 
-_This documentation is automatically generated from the marketplace catalog._
-_Last updated: 2025-10-17 12:09:34_
+*This documentation is automatically generated from the marketplace catalog.*
+*Last updated: 2025-10-17 13:44:36*

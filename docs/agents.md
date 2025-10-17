@@ -4,18 +4,35 @@ This document provides a comprehensive reference of all agents available across 
 
 ## Overview
 
-- **Total Agents**: 
-- **Total Plugins**: 
-- **Last Updated**: 2025-10-17 12:09:34
+- **Total Agents**: 1
+- **Total Plugins**: 1
+- **Last Updated**: 2025-10-17 13:44:36
 
 ---
 
 
-##  Agents
+## Plugin-Management Agents
+
+
+### claude-plugin
+
+**Description**: Plugin management and scaffolding tools for creating and maintaining Claude Code plugins
+
+**Version**: 1.0.0
+
+
+**Agents**:
 
 
 
-*No agents defined*
+#### plugin-architect
+
+- **Model**: `claude-sonnet-4`
+- **Description**: Expert agent for designing and implementing Claude Code plugins following granular, composable architecture principles
+- **Location**: `plugins/claude-plugin/agents/plugin-architect.md`
+
+
+
 
 
 ---
@@ -42,4 +59,4 @@ Agents are optimized for specific models based on their complexity:
 ---
 
 *This documentation is automatically generated from the marketplace catalog.*
-*Last updated: 2025-10-17 12:09:34*
+*Last updated: 2025-10-17 13:44:36*

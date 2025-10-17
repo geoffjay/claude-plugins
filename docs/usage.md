@@ -4,13 +4,12 @@ Comprehensive guide for using Claude Code plugins, agents, commands, and skills 
 
 ## Overview
 
-This marketplace provides plugin(s) with:
+This marketplace provides 1 plugin(s) with:
+- 1 specialized agent(s)
+- 3 command(s)
+- 2 skill(s)
 
-- specialized agent(s)
-- command(s)
-- skill(s)
-
-**Last Updated**: 2025-10-17 12:09:34
+**Last Updated**: 2025-10-17 13:44:36
 
 ---
 
@@ -25,7 +24,6 @@ Use Task tool with subagent_type="<agent-name>"
 ```
 
 **Example**:
-
 ```
 Use Task tool with subagent_type="plugin-architect" to design a new plugin
 ```
@@ -40,19 +38,19 @@ Commands are slash commands for specific workflows:
 
 **Available Commands**:
 
-- `claude-plugin:create` - Create a new Claude Code plugin with agents, commands, and/or skills
 
+- `claude-plugin:create` - Create a new Claude Code plugin with agents, commands, and/or skills
   - Plugin: claude-plugin
   - File: `plugins/claude-plugin/commands/create.md`
 
 - `claude-plugin:update` - Update an existing Claude Code plugin by adding, modifying, or removing components
-
   - Plugin: claude-plugin
   - File: `plugins/claude-plugin/commands/update.md`
 
 - `claude-plugin:documentation` - Regenerate all documentation files from marketplace data and plugin metadata
   - Plugin: claude-plugin
   - File: `plugins/claude-plugin/commands/documentation.md`
+
 
 ### Using Skills
 
@@ -64,14 +62,15 @@ Skills are automatically invoked by agents when their trigger conditions are met
 
 **Available Skills**:
 
-- `marketplace-update` - Updates the .claude-plugin/marketplace.json file when plugins are added, modified, or removed. Use when creating or updating plugin entries in the marketplace catalog.
 
+- `marketplace-update` - Updates the .claude-plugin/marketplace.json file when plugins are added, modified, or removed. Use when creating or updating plugin entries in the marketplace catalog.
   - Plugin: claude-plugin
   - Path: `plugins/claude-plugin/skills/marketplace-update/`
 
 - `documentation-update` - Regenerates documentation files (agents.md, agent-skills.md, plugins.md, usage.md) from marketplace data using Jinja templates. Use when plugins are added, updated, or removed to keep documentation in sync.
   - Plugin: claude-plugin
   - Path: `plugins/claude-plugin/skills/documentation-update/`
+
 
 ---
 
@@ -139,7 +138,6 @@ plugins/
 ### Component Requirements
 
 Each plugin must have:
-
 - At least one agent OR one command
 - Proper YAML frontmatter in all files
 - Clear, focused purpose
@@ -151,6 +149,7 @@ Each plugin must have:
 
 ### Available Agents
 
+
 #### plugin-architect
 
 - **Plugin**: claude-plugin
@@ -158,12 +157,13 @@ Each plugin must have:
 - **Description**: Expert agent for designing and implementing Claude Code plugins following granular, composable architecture principles
 - **Invocation**: `Use Task tool with subagent_type="plugin-architect"`
 
+
+
 ### Model Selection
 
 Agents use different models based on task complexity:
 
 - **Haiku**: Fast execution for deterministic tasks
-
   - Code generation from specs
   - Test creation
   - Documentation generation
@@ -230,7 +230,14 @@ python plugins/claude-plugin/skills/documentation-update/doc_generator.py --file
 
 Plugins are organized by category:
 
-###
+
+### Plugin-Management
+
+
+- **claude-plugin** - Plugin management and scaffolding tools for creating and maintaining Claude Code plugins
+
+
+
 
 ---
 
@@ -251,5 +258,5 @@ Plugins are organized by category:
 
 ---
 
-_This documentation is automatically generated from the marketplace catalog._
-_Last updated: 2025-10-17 12:09:34_
+*This documentation is automatically generated from the marketplace catalog.*
+*Last updated: 2025-10-17 13:44:36*

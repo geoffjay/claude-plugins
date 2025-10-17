@@ -4,16 +4,54 @@ Complete catalog of all plugins available in the marketplace.
 
 ## Overview
 
-- **Total Plugins**: 
-- **Total Agents**: 
-- **Total Commands**: 
-- **Total Skills**: 
-- **Last Updated**: 2025-10-17 12:09:34
+- **Total Plugins**: 1
+- **Total Agents**: 1
+- **Total Commands**: 3
+- **Total Skills**: 2
+- **Last Updated**: 2025-10-17 13:44:36
 
 ---
 
 
-## 
+## Plugin-Management
+
+
+### claude-plugin
+
+Plugin management and scaffolding tools for creating and maintaining Claude Code plugins
+
+**Version**: 1.0.0
+
+**Author**: Geoff Johnson
+
+**License**: MIT
+
+
+**Keywords**: plugin, scaffolding, marketplace, documentation
+
+
+**Components**:
+
+- **Agents**: 1
+
+
+- **Commands**: 3
+
+
+- **Skills**: 2
+
+
+**Location**: `./plugins/claude-plugin`
+
+
+**Homepage**: https://github.com/geoffjay/claude-plugins
+
+
+
+**Repository**: https://github.com/geoffjay/claude-plugins
+
+
+---
 
 
 
@@ -41,10 +79,10 @@ All plugins are included in this marketplace. To use a plugin:
 Plugins are organized into the following categories:
 
 
-- ****:  plugin(s)
+- **Plugin-Management**: 1 plugin(s)
 
 
 ---
 
 *This documentation is automatically generated from the marketplace catalog.*
-*Last updated: 2025-10-17 12:09:34*
+*Last updated: 2025-10-17 13:44:36*

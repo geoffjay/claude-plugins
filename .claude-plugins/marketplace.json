@@ -1,0 +1,33 @@
+{
+  "name": "claude-code-workflows",
+  "owner": {
+    "name": "Geoff Johnson",
+    "email": "geoff.jay@gmail.com",
+    "url": "https://github.com/geoffjay"
+  },
+  "metadata": {
+    "description": "Claude workflow orchestration through focused plugins, specialized agents, and tools - optimized for granular installation and minimal token usage",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "claude-plugin",
+      "source": "./plugins/claude-plugin",
+      "description": "Claude plugin creation and modification",
+      "version": "1.0.0",
+      "author": {
+        "name": "Geoff Johnson",
+        "url": "https://github.com/geoffjay"
+      },
+      "homepage": "https://github.com/geoffjay/claude-plugins",
+      "repository": "https://github.com/geoffjay/claude-plugins",
+      "license": "MIT",
+      "keywords": ["ai", "plugin", "generation"],
+      "category": "documentation",
+      "strict": false,
+      "commands": ["./commands/create.md", "./commands/update.md"],
+      "agents": ["./agents/plugin-architect.md"],
+      "skills": ["./skills/marketplace-update", "./skills/documentation-update"]
+    }
+  ]
+}

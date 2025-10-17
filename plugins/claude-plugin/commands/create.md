@@ -1,3 +1,8 @@
+---
+name: claude-plugin:create
+description: Create a new Claude Code plugin with agents, commands, and/or skills
+---
+
 # Create Plugin Command
 
 Create a new Claude Code plugin following granular, composable architecture principles.
@@ -13,13 +18,13 @@ Create a new Claude Code plugin following granular, composable architecture prin
 
 ```bash
 # Basic usage - will prompt for details
-/create my-plugin-name "Plugin description"
+/claude-plugin:create my-plugin-name "Plugin description"
 
 # Specify components
-/create my-plugin-name "Plugin description" agents,commands
+/claude-plugin:create my-plugin-name "Plugin description" agents,commands
 
 # Full configuration
-/create golang-advanced "Advanced Go development tools" agents,commands,skills '{"category":"languages","model":"claude-sonnet-4"}'
+/claude-plugin:create golang-advanced "Advanced Go development tools" agents,commands,skills '{"category":"languages","model":"claude-sonnet-4"}'
 ```
 
 ## Workflow
@@ -141,18 +146,39 @@ After plugin creation:
 
 1. **Update Marketplace**
 
-   - Invoke the marketplace-update skill
-   - Provide plugin details for marketplace.json entry
+   Invoke the marketplace-update skill by running the Python script:
+
+   ```bash
+   python plugins/claude-plugin/skills/marketplace-update/marketplace_update.py add \
+     --name "$PLUGIN_NAME" \
+     --description "$PLUGIN_DESCRIPTION" \
+     --version "1.0.0" \
+     --category "$CATEGORY" \
+     --agents "$(ls plugins/$PLUGIN_NAME/agents/*.md 2>/dev/null | xargs -n1 basename | tr '\n' ',')" \
+     --commands "$(ls plugins/$PLUGIN_NAME/commands/*.md 2>/dev/null | xargs -n1 basename | tr '\n' ',')" \
+     --skills "$(ls -d plugins/$PLUGIN_NAME/skills/*/ 2>/dev/null | xargs -n1 basename | tr '\n' ',')"
+   ```
 
 2. **Update Documentation**
 
-   - Invoke the documentation-update skill
-   - Regenerate agent-skills.md, agents.md, plugins.md, usage.md
+   Invoke the documentation-update skill by running the Python script:
+
+   ```bash
+   python plugins/claude-plugin/skills/documentation-update/doc_generator.py
+   ```
+
+   This regenerates:
+   - `docs/agents.md` - Agent reference
+   - `docs/agent-skills.md` - Skills catalog
+   - `docs/plugins.md` - Plugin directory
+   - `docs/usage.md` - Usage guide
 
 3. **Verify Structure**
    - Check all files have proper frontmatter
    - Verify naming conventions
    - Ensure documentation is complete
+   - Confirm marketplace.json is valid
+   - Verify all documentation files were regenerated
 
 ### Step 6: Confirm Success
 
@@ -169,7 +195,7 @@ Report to the user:
 ### Example 1: Create Language Plugin
 
 ```bash
-/create rust-development "Rust language development tools" agents,commands,skills
+/claude-plugin:create rust-development "Rust language development tools" agents,commands,skills
 ```
 
 This would:
@@ -184,7 +210,7 @@ This would:
 ### Example 2: Create Security Plugin
 
 ```bash
-/create security-scanning "Security vulnerability scanning and analysis" agents,commands
+/claude-plugin:create security-scanning "Security vulnerability scanning and analysis" agents,commands
 ```
 
 This would:
@@ -198,7 +224,7 @@ This would:
 ### Example 3: Create Minimal Plugin
 
 ```bash
-/create test-helper "Test generation helper utilities" commands
+/claude-plugin:create test-helper "Test generation helper utilities" commands
 ```
 
 This would:
@@ -216,8 +242,8 @@ Common issues and resolutions:
 
 If `plugins/$PLUGIN_NAME/` exists:
 
-- Error: "Plugin '$PLUGIN_NAME' already exists. Use /update to modify existing plugins."
-- Suggest using `/update` command instead
+- Error: "Plugin '$PLUGIN_NAME' already exists. Use /claude-plugin:update to modify existing plugins."
+- Suggest using `/claude-plugin:update` command instead
 
 ### Invalid Plugin Name
 
@@ -237,12 +263,12 @@ If user doesn't specify components and doesn't respond to prompts:
 
 If `$1` or `$2` are not provided:
 
-- Error: "Usage: /create <plugin-name> <description> [components] [config]"
+- Error: "Usage: /claude-plugin:create <plugin-name> <description> [components] [config]"
 - Show examples
 
 ## Notes
 
-- This command creates new plugins only. Use `/update` to modify existing plugins.
+- This command creates new plugins only. Use `/claude-plugin:update` to modify existing plugins.
 - All generated files will include proper YAML frontmatter
 - The plugin-architect agent ensures adherence to architecture principles
 - Skills are invoked automatically for marketplace and documentation updates

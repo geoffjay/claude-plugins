@@ -206,9 +206,9 @@ python marketplace_update.py remove --name "obsolete-plugin"
 
 ## Integration with Commands
 
-The `/create` and `/update` commands should invoke this skill automatically:
+The `/claude-plugin:create` and `/claude-plugin:update` commands should invoke this skill automatically:
 
-### From /create Command
+### From /claude-plugin:create Command
 
 After creating a new plugin:
 
@@ -222,7 +222,7 @@ After creating a new plugin:
    - Metadata: [extracted from frontmatter]
 ```
 
-### From /update Command
+### From /claude-plugin:update Command
 
 After updating a plugin:
 

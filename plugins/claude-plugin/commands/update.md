@@ -1,3 +1,8 @@
+---
+name: claude-plugin:update
+description: Update an existing Claude Code plugin by adding, modifying, or removing components
+---
+
 # Update Plugin Command
 
 Update an existing Claude Code plugin by adding new components, modifying existing ones, or removing obsolete components.
@@ -14,16 +19,16 @@ Update an existing Claude Code plugin by adding new components, modifying existi
 
 ```bash
 # Add a new agent to existing plugin
-/update golang-development add agent golang-testing
+/claude-plugin:update golang-development add agent golang-testing
 
 # Modify an existing command
-/update golang-development modify command golang-scaffold
+/claude-plugin:update golang-development modify command golang-scaffold
 
 # Remove a skill
-/update golang-development remove skill golang-patterns
+/claude-plugin:update golang-development remove skill golang-patterns
 
 # Add with configuration
-/update rust-development add agent rust-async '{"model":"claude-sonnet-4","description":"Async Rust expert"}'
+/claude-plugin:update rust-development add agent rust-async '{"model":"claude-sonnet-4","description":"Async Rust expert"}'
 ```
 
 ## Workflow
@@ -152,19 +157,49 @@ After component update:
 
 1. **Update Marketplace**
 
-   - Invoke marketplace-update skill
-   - Update plugin entry with new component list
-   - Update version if needed
+   Invoke the marketplace-update skill by running the appropriate Python command:
+
+   **For Add Operation:**
+   ```bash
+   python plugins/claude-plugin/skills/marketplace-update/marketplace_update.py update \
+     --name "$PLUGIN_NAME" \
+     --add-agent "$COMPONENT_NAME.md"    # if adding agent
+     --add-command "$COMPONENT_NAME.md"  # if adding command
+     --add-skill "$COMPONENT_NAME"       # if adding skill
+   ```
+
+   **For Remove Operation:**
+   ```bash
+   python plugins/claude-plugin/skills/marketplace-update/marketplace_update.py update \
+     --name "$PLUGIN_NAME" \
+     --remove-agent "$COMPONENT_NAME.md"    # if removing agent
+     --remove-command "$COMPONENT_NAME.md"  # if removing command
+     --remove-skill "$COMPONENT_NAME"       # if removing skill
+   ```
+
+   **For Modify Operation (version update):**
+   ```bash
+   python plugins/claude-plugin/skills/marketplace-update/marketplace_update.py update \
+     --name "$PLUGIN_NAME" \
+     --version "1.0.1"  # or appropriate version bump
+   ```
 
 2. **Update Documentation**
 
-   - Invoke documentation-update skill
-   - Regenerate affected documentation files
+   Invoke the documentation-update skill by running the Python script:
+
+   ```bash
+   python plugins/claude-plugin/skills/documentation-update/doc_generator.py
+   ```
+
+   This regenerates all documentation files to reflect the changes.
 
 3. **Verify Integrity**
    - Check plugin still has at least one agent or command
    - Verify all references are valid
    - Ensure frontmatter is correct
+   - Confirm marketplace.json is valid
+   - Verify documentation was regenerated
 
 ### Step 5: Confirm Success
 
@@ -268,7 +303,7 @@ When removing a component:
 ### Example 1: Add New Agent
 
 ```bash
-/update golang-development add agent gin-expert
+/claude-plugin:update golang-development add agent gin-expert
 ```
 
 This would:
@@ -282,7 +317,7 @@ This would:
 ### Example 2: Modify Existing Command
 
 ```bash
-/update security-scanning modify command sast-scan
+/claude-plugin:update security-scanning modify command sast-scan
 ```
 
 This would:
@@ -296,7 +331,7 @@ This would:
 ### Example 3: Remove Skill
 
 ```bash
-/update kubernetes-operations remove skill helm-charts
+/claude-plugin:update kubernetes-operations remove skill helm-charts
 ```
 
 This would:
@@ -310,7 +345,7 @@ This would:
 ### Example 4: Add Agent with Configuration
 
 ```bash
-/update python-development add agent fastapi-pro '{"model":"claude-sonnet-4","description":"FastAPI framework expert"}'
+/claude-plugin:update python-development add agent fastapi-pro '{"model":"claude-sonnet-4","description":"FastAPI framework expert"}'
 ```
 
 This would:
@@ -328,7 +363,7 @@ Common issues and resolutions:
 
 If `plugins/$PLUGIN_NAME/` doesn't exist:
 
-- Error: "Plugin '$PLUGIN_NAME' not found. Use /create to create new plugins."
+- Error: "Plugin '$PLUGIN_NAME' not found. Use /claude-plugin:create to create new plugins."
 - List available plugins
 
 ### Component Already Exists (Add)
@@ -387,7 +422,7 @@ When updating plugins:
 
 ## Notes
 
-- This command updates existing plugins only. Use `/create` for new plugins.
+- This command updates existing plugins only. Use `/claude-plugin:create` for new plugins.
 - All changes maintain spec compliance and proper frontmatter
 - The plugin-architect agent ensures consistency with architecture principles
 - Skills are invoked automatically for marketplace and documentation updates

@@ -163,7 +163,7 @@ python doc_generator.py \
 
 ## Integration with Commands
 
-The `/create` and `/update` commands should invoke this skill automatically after marketplace updates:
+The `/claude-plugin:create` and `/claude-plugin:update` commands should invoke this skill automatically after marketplace updates:
 
 ### Workflow
 

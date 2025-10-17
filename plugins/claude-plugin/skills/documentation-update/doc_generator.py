@@ -93,7 +93,7 @@ class DocGenerator:
 
     def __init__(
         self,
-        marketplace_path: str = ".claude-plugins/marketplace.json",
+        marketplace_path: str = ".claude-plugin/marketplace.json",
         templates_dir: str = "plugins/claude-plugin/skills/documentation-update/assets",
         output_dir: str = "docs",
     ):
@@ -225,7 +225,7 @@ class DocGenerator:
 
     def render_template(self, template_name: str, context: Dict[str, Any]) -> str:
         """Render a template with context"""
-        template_path = self.templates_dir / f"{template_name}.j2"
+        template_path = self.templates_dir / f"{template_name}.md.j2"
 
         if not template_path.exists():
             raise FileNotFoundError(f"Template not found: {template_path}")
@@ -280,7 +280,7 @@ def main():
     parser = argparse.ArgumentParser(description="Generate documentation from marketplace")
     parser.add_argument(
         "--marketplace",
-        default=".claude-plugins/marketplace.json",
+        default=".claude-plugin/marketplace.json",
         help="Path to marketplace.json",
     )
     parser.add_argument(

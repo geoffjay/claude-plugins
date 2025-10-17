@@ -2,7 +2,7 @@
 """
 Marketplace Update Script
 
-Updates the .claude-plugins/marketplace.json file when plugins are added,
+Updates the .claude-plugin/marketplace.json file when plugins are added,
 modified, or removed.
 """
 
@@ -17,7 +17,7 @@ import argparse
 class MarketplaceUpdater:
     """Handles marketplace.json updates"""
 
-    def __init__(self, marketplace_path: str = ".claude-plugins/marketplace.json"):
+    def __init__(self, marketplace_path: str = ".claude-plugin/marketplace.json"):
         self.marketplace_path = Path(marketplace_path)
         self.marketplace_data: Dict[str, Any] = {}
 
@@ -308,7 +308,7 @@ def main():
     add_parser.add_argument("--author-url", help="Author URL")
     add_parser.add_argument(
         "--marketplace",
-        default=".claude-plugins/marketplace.json",
+        default=".claude-plugin/marketplace.json",
         help="Path to marketplace.json",
     )
 
@@ -327,7 +327,7 @@ def main():
     update_parser.add_argument("--remove-skill", help="Skill directory to remove")
     update_parser.add_argument(
         "--marketplace",
-        default=".claude-plugins/marketplace.json",
+        default=".claude-plugin/marketplace.json",
         help="Path to marketplace.json",
     )
 
@@ -336,7 +336,7 @@ def main():
     remove_parser.add_argument("--name", required=True, help="Plugin name")
     remove_parser.add_argument(
         "--marketplace",
-        default=".claude-plugins/marketplace.json",
+        default=".claude-plugin/marketplace.json",
         help="Path to marketplace.json",
     )
 
@@ -344,7 +344,7 @@ def main():
     validate_parser = subparsers.add_parser("validate", help="Validate marketplace.json")
     validate_parser.add_argument(
         "--marketplace",
-        default=".claude-plugins/marketplace.json",
+        default=".claude-plugin/marketplace.json",
         help="Path to marketplace.json",
     )
 
@@ -356,7 +356,7 @@ def main():
 
     try:
         updater = MarketplaceUpdater(
-            getattr(args, "marketplace", ".claude-plugins/marketplace.json")
+            getattr(args, "marketplace", ".claude-plugin/marketplace.json")
         )
 
         if args.command == "add":

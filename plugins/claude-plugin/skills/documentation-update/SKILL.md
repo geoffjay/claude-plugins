@@ -10,6 +10,7 @@ This skill automatically regenerates documentation files in the `docs/` director
 ## Purpose
 
 Maintain synchronized documentation by:
+
 - Generating agent reference documentation
 - Creating skill catalog documentation
 - Building plugin directory
@@ -19,6 +20,7 @@ Maintain synchronized documentation by:
 ## When to Use
 
 Use this skill when:
+
 - A new plugin is added to the marketplace
 - An existing plugin is updated (components added/removed)
 - Agent or skill metadata changes
@@ -30,28 +32,36 @@ Use this skill when:
 This skill generates four main documentation files:
 
 ### 1. agents.md
+
 Complete reference of all agents across all plugins:
+
 - Organized by plugin
 - Lists agent name, description, and model
 - Includes links to agent files
 - Shows agent capabilities and use cases
 
 ### 2. agent-skills.md
+
 Catalog of all skills with progressive disclosure details:
+
 - Organized by plugin
 - Lists skill name and description
 - Shows "Use when" triggers
 - Includes skill structure information
 
 ### 3. plugins.md
+
 Directory of all plugins in the marketplace:
+
 - Organized by category
 - Shows plugin name, description, and version
 - Lists components (agents, commands, skills)
 - Provides installation and usage information
 
 ### 4. usage.md
+
 Usage guide and command reference:
+
 - Getting started instructions
 - Command usage examples
 - Workflow patterns
@@ -123,16 +133,19 @@ All templates receive the following context:
 The skill includes a Python script `doc_generator.py` that:
 
 1. **Loads marketplace.json**
+
    - Reads the marketplace catalog
    - Validates structure
    - Builds component index
 
 2. **Scans Plugin Files**
+
    - Reads agent/command frontmatter
    - Extracts skill metadata
    - Builds comprehensive component list
 
 3. **Prepares Template Context**
+
    - Organizes plugins by category
    - Creates component indexes
    - Calculates statistics
@@ -156,7 +169,7 @@ python doc_generator.py --dry-run
 
 # Specify custom paths
 python doc_generator.py \
-  --marketplace .claude-plugins/marketplace.json \
+  --marketplace .claude-plugin/marketplace.json \
   --templates plugins/claude-plugin/skills/documentation-update/assets \
   --output docs
 ```
@@ -266,24 +279,28 @@ This document catalogs all skills with progressive disclosure patterns.
 ## Error Handling
 
 ### Marketplace Not Found
+
 ```
-Error: Marketplace file not found: .claude-plugins/marketplace.json
+Error: Marketplace file not found: .claude-plugin/marketplace.json
 Suggestion: Ensure marketplace.json exists
 ```
 
 ### Template Not Found
+
 ```
 Error: Template file not found: assets/agents.md.j2
 Suggestion: Ensure all template files exist in assets/
 ```
 
 ### Invalid Plugin Structure
+
 ```
 Warning: Plugin 'plugin-name' missing components
 Suggestion: Verify plugin has agents or commands
 ```
 
 ### Frontmatter Parse Error
+
 ```
 Warning: Could not parse frontmatter in agents/agent-name.md
 Suggestion: Check YAML frontmatter syntax
@@ -292,21 +309,25 @@ Suggestion: Check YAML frontmatter syntax
 ## Best Practices
 
 1. **Always Regenerate After Changes**
+
    - Run after every plugin add/update/remove
    - Ensure docs stay synchronized
    - Commit documentation with plugin changes
 
 2. **Validate Before Generation**
+
    - Run marketplace validation first
    - Fix any errors or warnings
    - Ensure all files exist
 
 3. **Review Generated Output**
+
    - Check generated files for correctness
    - Verify formatting and links
    - Test any code examples
 
 4. **Template Maintenance**
+
    - Keep templates simple and readable
    - Use consistent formatting
    - Document template variables
@@ -323,6 +344,7 @@ Suggestion: Check YAML frontmatter syntax
 To add a new section to a template:
 
 1. **Modify Template**
+
    ```jinja2
    ## New Section
 
@@ -333,6 +355,7 @@ To add a new section to a template:
    ```
 
 2. **Update Context (if needed)**
+
    - Add new data to template context in doc_generator.py
    - Process additional metadata
 
@@ -346,10 +369,12 @@ To add a new section to a template:
 To add a new documentation file:
 
 1. **Create Template**
+
    - Add `assets/newdoc.md.j2`
    - Define structure and content
 
 2. **Update Script**
+
    - Add to doc_generator.py template list
    - Define output path
 
@@ -377,13 +402,14 @@ plugins/claude-plugin/skills/documentation-update/
 
 - Python 3.8+
 - No external dependencies (uses standard library only)
-- Access to `.claude-plugins/marketplace.json`
+- Access to `.claude-plugin/marketplace.json`
 - Read access to plugin directories
 - Write access to `docs/` directory
 
 ## Success Criteria
 
 After running this skill:
+
 - ✓ All documentation files generated
 - ✓ Content matches marketplace state
 - ✓ All links are valid
@@ -398,14 +424,17 @@ After running this skill:
 When marketplace structure changes:
 
 1. **Assess Impact**
+
    - Identify affected templates
    - Determine required changes
 
 2. **Update Templates**
+
    - Modify Jinja2 templates
    - Test with current data
 
 3. **Update Script**
+
    - Adjust context preparation if needed
    - Add new data processing
 
@@ -430,6 +459,7 @@ The skill generates comprehensive, well-formatted documentation:
 - **usage.md**: ~200-400 lines of usage information
 
 All files include:
+
 - Clear structure and headings
 - Formatted tables where appropriate
 - Links to source files

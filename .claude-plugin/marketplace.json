@@ -13,7 +13,7 @@
     {
       "name": "claude-plugin",
       "source": "./plugins/claude-plugin",
-      "description": "Claude plugin creation and modification",
+      "description": "Plugin management and scaffolding tools for creating and maintaining Claude Code plugins",
       "version": "1.0.0",
       "author": {
         "name": "Geoff Johnson",
@@ -22,11 +22,15 @@
       "homepage": "https://github.com/geoffjay/claude-plugins",
       "repository": "https://github.com/geoffjay/claude-plugins",
       "license": "MIT",
-      "keywords": ["ai", "plugin", "generation"],
-      "category": "ai-ml",
+      "keywords": ["plugin", "scaffolding", "marketplace", "documentation"],
+      "category": "plugin-management",
       "strict": false,
-      "commands": ["./commands/create.md", "./commands/update.md"],
       "agents": ["./agents/plugin-architect.md"],
+      "commands": [
+        "./commands/create.md",
+        "./commands/update.md",
+        "./commands/documentation.md"
+      ],
       "skills": ["./skills/marketplace-update", "./skills/documentation-update"]
     }
   ]

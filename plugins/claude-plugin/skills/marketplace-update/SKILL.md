@@ -1,15 +1,16 @@
 ---
 name: marketplace-update
-description: Updates the .claude-plugins/marketplace.json file when plugins are added, modified, or removed. Use when creating or updating plugin entries in the marketplace catalog.
+description: Updates the .claude-plugin/marketplace.json file when plugins are added, modified, or removed. Use when creating or updating plugin entries in the marketplace catalog.
 ---
 
 # Marketplace Update Skill
 
-This skill provides functionality to update the `.claude-plugins/marketplace.json` file when plugins are added, modified, or removed from the marketplace.
+This skill provides functionality to update the `.claude-plugin/marketplace.json` file when plugins are added, modified, or removed from the marketplace.
 
 ## Purpose
 
 Maintain the marketplace catalog by:
+
 - Adding new plugin entries
 - Updating existing plugin metadata
 - Removing obsolete plugins
@@ -19,6 +20,7 @@ Maintain the marketplace catalog by:
 ## When to Use
 
 Use this skill when:
+
 - A new plugin is created and needs to be registered
 - An existing plugin's components change (agents, commands, skills added/removed)
 - Plugin metadata needs updating (version, description, keywords, etc.)
@@ -84,11 +86,13 @@ python marketplace_update.py add \
 ```
 
 **Required Fields:**
+
 - `name` - Plugin name (hyphen-case)
 - `description` - Brief plugin description
 - `version` - Semantic version (e.g., "1.0.0")
 
 **Optional Fields:**
+
 - `category` - Plugin category (default: "general")
 - `agents` - Comma-separated list of agent files
 - `commands` - Comma-separated list of command files
@@ -111,6 +115,7 @@ python marketplace_update.py update \
 ```
 
 **Update Operations:**
+
 - `--description` - Update description
 - `--version` - Update version
 - `--category` - Update category
@@ -139,6 +144,7 @@ python marketplace_update.py validate
 ```
 
 This checks:
+
 - JSON syntax validity
 - Required fields presence
 - File path existence
@@ -154,11 +160,13 @@ The skill includes a Python script at `marketplace_update.py` that provides comm
 When invoked as a skill:
 
 1. **Read Plugin Structure**
+
    - Scan plugin directory for components
    - Extract metadata from frontmatter
    - Build component lists
 
 2. **Execute Python Script**
+
    - Call marketplace_update.py with appropriate arguments
    - Pass plugin details
    - Handle success/error responses
@@ -237,30 +245,35 @@ After updating a plugin:
 ## Error Handling
 
 ### Plugin Already Exists (Add)
+
 ```
 Error: Plugin 'plugin-name' already exists in marketplace.
 Suggestion: Use 'update' operation instead.
 ```
 
 ### Plugin Not Found (Update/Remove)
+
 ```
 Error: Plugin 'plugin-name' not found in marketplace.
 Suggestion: Use 'add' operation to create it.
 ```
 
 ### Invalid JSON
+
 ```
 Error: marketplace.json contains invalid JSON.
 Suggestion: Fix JSON syntax before proceeding.
 ```
 
 ### Component File Missing
+
 ```
 Warning: Component file './agents/agent-name.md' not found.
 Suggestion: Create the file or remove from plugin entry.
 ```
 
 ### Validation Failure
+
 ```
 Error: Marketplace validation failed:
   - Plugin 'plugin-a' missing required field 'description'
@@ -271,21 +284,25 @@ Suggestion: Fix errors and validate again.
 ## Best Practices
 
 1. **Always Validate After Changes**
+
    - Run validate after add/update/remove
    - Fix any warnings or errors
    - Ensure all referenced files exist
 
 2. **Scan Plugin Directory**
+
    - Don't manually list components
    - Scan directory to detect agents/commands/skills
    - Extract metadata from frontmatter
 
 3. **Semantic Versioning**
+
    - Patch: Bug fixes, documentation updates (1.0.0 → 1.0.1)
    - Minor: New components, enhancements (1.0.0 → 1.1.0)
    - Major: Breaking changes, removals (1.0.0 → 2.0.0)
 
 4. **Consistent Metadata**
+
    - Keep descriptions concise (< 100 chars)
    - Use relevant keywords
    - Maintain consistent author information
@@ -325,12 +342,13 @@ plugins/claude-plugin/skills/marketplace-update/
 
 - Python 3.8+
 - No external dependencies (uses standard library only)
-- Access to `.claude-plugins/marketplace.json`
+- Access to `.claude-plugin/marketplace.json`
 - Read/write permissions on marketplace file
 
 ## Success Criteria
 
 After running this skill:
+
 - ✓ marketplace.json is valid JSON
 - ✓ Plugin entry is correct and complete
 - ✓ All referenced files exist

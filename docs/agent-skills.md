@@ -4,9 +4,9 @@ This document catalogs all agent skills with progressive disclosure patterns acr
 
 ## Overview
 
-- **Total Skills**: 5
-- **Total Plugins**: 2
-- **Last Updated**: 2025-10-17 14:16:39
+- **Total Skills**: 9
+- **Total Plugins**: 3
+- **Last Updated**: 2025-10-20 14:55:44
 
 ---
 
@@ -58,6 +58,14 @@ Regenerates documentation files (agents.md, agent-skills.md, plugins.md, usage.m
 - `SKILL.md` - Skill definition with frontmatter
 - `assets/` - Templates, configurations, examples
 - `references/` - Additional documentation
+
+
+
+
+
+
+
+
 
 
 
@@ -130,6 +138,95 @@ Performance optimization techniques including profiling, memory management, benc
 
 
 
+
+
+
+
+
+
+
+
+---
+
+
+## ruby-sinatra-advanced
+
+**Description**: Advanced Ruby development tools with a focus on the Sinatra web framework
+
+**Version**: 1.0.0
+
+
+**Skills**:
+
+
+
+
+
+
+
+
+
+
+
+
+
+### sinatra-patterns
+
+Common Sinatra patterns, routing strategies, error handling, and application organization. Use when building Sinatra applications or designing routes.
+
+**Location**: `plugins/ruby-sinatra-advanced/skills/sinatra-patterns/`
+
+**Structure**:
+- `SKILL.md` - Skill definition with frontmatter
+- `assets/` - Templates, configurations, examples
+- `references/` - Additional documentation
+
+
+
+
+### ruby-patterns
+
+Modern Ruby idioms, design patterns, metaprogramming techniques, and best practices. Use when writing Ruby code or refactoring for clarity.
+
+**Location**: `plugins/ruby-sinatra-advanced/skills/ruby-patterns/`
+
+**Structure**:
+- `SKILL.md` - Skill definition with frontmatter
+- `assets/` - Templates, configurations, examples
+- `references/` - Additional documentation
+
+
+
+
+### sinatra-security
+
+Security best practices for Sinatra applications including input validation, CSRF protection, and authentication patterns. Use when hardening applications or conducting security reviews.
+
+**Location**: `plugins/ruby-sinatra-advanced/skills/sinatra-security/`
+
+**Structure**:
+- `SKILL.md` - Skill definition with frontmatter
+- `assets/` - Templates, configurations, examples
+- `references/` - Additional documentation
+
+
+
+
+### rack-middleware
+
+Rack middleware development, configuration, and integration patterns. Use when working with middleware stacks or creating custom middleware.
+
+**Location**: `plugins/ruby-sinatra-advanced/skills/rack-middleware/`
+
+**Structure**:
+- `SKILL.md` - Skill definition with frontmatter
+- `assets/` - Templates, configurations, examples
+- `references/` - Additional documentation
+
+
+
+
+
 ---
 
 
@@ -149,4 +246,4 @@ Skills are automatically invoked by agents when their trigger conditions are met
 ---
 
 *This documentation is automatically generated from the marketplace catalog.*
-*Last updated: 2025-10-17 14:16:39*
+*Last updated: 2025-10-20 14:55:44*

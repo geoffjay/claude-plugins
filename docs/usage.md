@@ -4,12 +4,12 @@ Comprehensive guide for using Claude Code plugins, agents, commands, and skills 
 
 ## Overview
 
-This marketplace provides 2 plugin(s) with:
-- 4 specialized agent(s)
-- 6 command(s)
-- 5 skill(s)
+This marketplace provides 3 plugin(s) with:
+- 8 specialized agent(s)
+- 10 command(s)
+- 9 skill(s)
 
-**Last Updated**: 2025-10-17 14:16:39
+**Last Updated**: 2025-10-20 14:55:44
 
 ---
 
@@ -63,6 +63,22 @@ Commands are slash commands for specific workflows:
   - Plugin: golang-development
   - File: `plugins/golang-development/commands/test.md`
 
+- `sinatra-scaffold` - Scaffold new Sinatra applications with modern structure, best practices, testing setup, and deployment configuration
+  - Plugin: ruby-sinatra-advanced
+  - File: `plugins/ruby-sinatra-advanced/commands/sinatra-scaffold.md`
+
+- `sinatra-review` - Review Sinatra code for security issues, performance problems, route conflicts, and framework best practices
+  - Plugin: ruby-sinatra-advanced
+  - File: `plugins/ruby-sinatra-advanced/commands/sinatra-review.md`
+
+- `sinatra-test` - Generate comprehensive tests for Sinatra routes, middleware, and helpers using RSpec or Minitest
+  - Plugin: ruby-sinatra-advanced
+  - File: `plugins/ruby-sinatra-advanced/commands/sinatra-test.md`
+
+- `ruby-optimize` - Analyze and optimize Ruby code for performance, memory usage, and idiomatic patterns
+  - Plugin: ruby-sinatra-advanced
+  - File: `plugins/ruby-sinatra-advanced/commands/ruby-optimize.md`
+
 
 ### Using Skills
 
@@ -94,6 +110,22 @@ Skills are automatically invoked by agents when their trigger conditions are met
 - `go-optimization` - Performance optimization techniques including profiling, memory management, benchmarking, and runtime tuning. Use when optimizing Go code performance, reducing memory usage, or analyzing bottlenecks.
   - Plugin: golang-development
   - Path: `plugins/golang-development/skills/go-optimization/`
+
+- `sinatra-patterns` - Common Sinatra patterns, routing strategies, error handling, and application organization. Use when building Sinatra applications or designing routes.
+  - Plugin: ruby-sinatra-advanced
+  - Path: `plugins/ruby-sinatra-advanced/skills/sinatra-patterns/`
+
+- `ruby-patterns` - Modern Ruby idioms, design patterns, metaprogramming techniques, and best practices. Use when writing Ruby code or refactoring for clarity.
+  - Plugin: ruby-sinatra-advanced
+  - Path: `plugins/ruby-sinatra-advanced/skills/ruby-patterns/`
+
+- `sinatra-security` - Security best practices for Sinatra applications including input validation, CSRF protection, and authentication patterns. Use when hardening applications or conducting security reviews.
+  - Plugin: ruby-sinatra-advanced
+  - Path: `plugins/ruby-sinatra-advanced/skills/sinatra-security/`
+
+- `rack-middleware` - Rack middleware development, configuration, and integration patterns. Use when working with middleware stacks or creating custom middleware.
+  - Plugin: ruby-sinatra-advanced
+  - Path: `plugins/ruby-sinatra-advanced/skills/rack-middleware/`
 
 
 ---
@@ -206,6 +238,38 @@ Each plugin must have:
 - **Invocation**: `Use Task tool with subagent_type="go-performance"`
 
 
+#### sinatra-pro
+
+- **Plugin**: ruby-sinatra-advanced
+- **Model**: claude-sonnet-4-20250514
+- **Description**: Master Sinatra 3.x+ framework with modern patterns, advanced routing, middleware composition, and production-ready applications. Expert in testing, performance, and deployment.
+- **Invocation**: `Use Task tool with subagent_type="sinatra-pro"`
+
+
+#### ruby-pro
+
+- **Plugin**: ruby-sinatra-advanced
+- **Model**: claude-sonnet-4-20250514
+- **Description**: Master Ruby 3.x+ with modern features, advanced metaprogramming, performance optimization, and idiomatic patterns. Expert in gems, stdlib, and language internals.
+- **Invocation**: `Use Task tool with subagent_type="ruby-pro"`
+
+
+#### rack-specialist
+
+- **Plugin**: ruby-sinatra-advanced
+- **Model**: claude-sonnet-4-20250514
+- **Description**: Specialist in Rack middleware development, web server integration, and low-level HTTP handling. Expert in custom middleware, performance tuning, and server configuration.
+- **Invocation**: `Use Task tool with subagent_type="rack-specialist"`
+
+
+#### sinatra-architect
+
+- **Plugin**: ruby-sinatra-advanced
+- **Model**: claude-sonnet-4-20250514
+- **Description**: System architect for Sinatra applications focusing on scalability, API design, microservices patterns, and modular architecture. Expert in large-scale Sinatra systems.
+- **Invocation**: `Use Task tool with subagent_type="sinatra-architect"`
+
+
 
 ### Model Selection
 
@@ -291,6 +355,8 @@ Plugins are organized by category:
 
 - **golang-development** - Experienced Go development patterns and tools
 
+- **ruby-sinatra-advanced** - Advanced Ruby development tools with a focus on the Sinatra web framework
+
 
 
 
@@ -314,4 +380,4 @@ Plugins are organized by category:
 ---
 
 *This documentation is automatically generated from the marketplace catalog.*
-*Last updated: 2025-10-17 14:16:39*
+*Last updated: 2025-10-20 14:55:44*

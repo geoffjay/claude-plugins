@@ -4,11 +4,11 @@ Complete catalog of all plugins available in the marketplace.
 
 ## Overview
 
-- **Total Plugins**: 2
-- **Total Agents**: 4
-- **Total Commands**: 6
-- **Total Skills**: 5
-- **Last Updated**: 2025-10-17 14:16:39
+- **Total Plugins**: 3
+- **Total Agents**: 8
+- **Total Commands**: 10
+- **Total Skills**: 9
+- **Last Updated**: 2025-10-20 14:55:44
 
 ---
 
@@ -96,6 +96,44 @@ Experienced Go development patterns and tools
 ---
 
 
+### ruby-sinatra-advanced
+
+Advanced Ruby development tools with a focus on the Sinatra web framework
+
+**Version**: 1.0.0
+
+**Author**: Geoff Johnson
+
+**License**: MIT
+
+
+**Keywords**: ruby, sinatra, rack, web-framework, api, microservices
+
+
+**Components**:
+
+- **Agents**: 4
+
+
+- **Commands**: 4
+
+
+- **Skills**: 4
+
+
+**Location**: `./plugins/ruby-sinatra-advanced`
+
+
+**Homepage**: https://github.com/geoffjay/claude-plugins
+
+
+
+**Repository**: https://github.com/geoffjay/claude-plugins
+
+
+---
+
+
 
 
 ## Plugin Architecture
@@ -123,10 +161,10 @@ Plugins are organized into the following categories:
 
 - **Plugin-Management**: 1 plugin(s)
 
-- **Languages**: 1 plugin(s)
+- **Languages**: 2 plugin(s)
 
 
 ---
 
 *This documentation is automatically generated from the marketplace catalog.*
-*Last updated: 2025-10-17 14:16:39*
+*Last updated: 2025-10-20 14:55:44*

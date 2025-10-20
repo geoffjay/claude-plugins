@@ -4,9 +4,9 @@ This document provides a comprehensive reference of all agents available across 
 
 ## Overview
 
-- **Total Agents**: 4
-- **Total Plugins**: 2
-- **Last Updated**: 2025-10-17 14:16:39
+- **Total Agents**: 8
+- **Total Plugins**: 3
+- **Last Updated**: 2025-10-20 14:55:44
 
 ---
 
@@ -30,6 +30,14 @@ This document provides a comprehensive reference of all agents available across 
 - **Model**: `claude-sonnet-4`
 - **Description**: Expert agent for designing and implementing Claude Code plugins following granular, composable architecture principles
 - **Location**: `plugins/claude-plugin/agents/plugin-architect.md`
+
+
+
+
+
+
+
+
 
 
 
@@ -89,6 +97,73 @@ This document provides a comprehensive reference of all agents available across 
 
 
 
+
+
+
+
+
+
+
+
+---
+
+
+### ruby-sinatra-advanced
+
+**Description**: Advanced Ruby development tools with a focus on the Sinatra web framework
+
+**Version**: 1.0.0
+
+
+**Agents**:
+
+
+
+
+
+
+
+
+
+
+
+#### sinatra-pro
+
+- **Model**: `claude-sonnet-4-20250514`
+- **Description**: Master Sinatra 3.x+ framework with modern patterns, advanced routing, middleware composition, and production-ready applications. Expert in testing, performance, and deployment.
+- **Location**: `plugins/ruby-sinatra-advanced/agents/sinatra-pro.md`
+
+
+
+
+#### ruby-pro
+
+- **Model**: `claude-sonnet-4-20250514`
+- **Description**: Master Ruby 3.x+ with modern features, advanced metaprogramming, performance optimization, and idiomatic patterns. Expert in gems, stdlib, and language internals.
+- **Location**: `plugins/ruby-sinatra-advanced/agents/ruby-pro.md`
+
+
+
+
+#### rack-specialist
+
+- **Model**: `claude-sonnet-4-20250514`
+- **Description**: Specialist in Rack middleware development, web server integration, and low-level HTTP handling. Expert in custom middleware, performance tuning, and server configuration.
+- **Location**: `plugins/ruby-sinatra-advanced/agents/rack-specialist.md`
+
+
+
+
+#### sinatra-architect
+
+- **Model**: `claude-sonnet-4-20250514`
+- **Description**: System architect for Sinatra applications focusing on scalability, API design, microservices patterns, and modular architecture. Expert in large-scale Sinatra systems.
+- **Location**: `plugins/ruby-sinatra-advanced/agents/sinatra-architect.md`
+
+
+
+
+
 ---
 
 
@@ -113,4 +188,4 @@ Agents are optimized for specific models based on their complexity:
 ---
 
 *This documentation is automatically generated from the marketplace catalog.*
-*Last updated: 2025-10-17 14:16:39*
+*Last updated: 2025-10-20 14:55:44*

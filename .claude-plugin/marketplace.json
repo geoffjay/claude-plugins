@@ -63,6 +63,40 @@
         "./skills/go-concurrency",
         "./skills/go-optimization"
       ]
+    },
+    {
+      "name": "ruby-sinatra-advanced",
+      "source": "./plugins/ruby-sinatra-advanced",
+      "description": "Advanced Ruby development tools with a focus on the Sinatra web framework",
+      "version": "1.0.0",
+      "author": {
+        "name": "Geoff Johnson",
+        "url": "https://github.com/geoffjay"
+      },
+      "homepage": "https://github.com/geoffjay/claude-plugins",
+      "repository": "https://github.com/geoffjay/claude-plugins",
+      "license": "MIT",
+      "keywords": ["ruby", "sinatra", "rack", "web-framework", "api", "microservices"],
+      "category": "languages",
+      "strict": false,
+      "agents": [
+        "./agents/sinatra-pro.md",
+        "./agents/ruby-pro.md",
+        "./agents/rack-specialist.md",
+        "./agents/sinatra-architect.md"
+      ],
+      "commands": [
+        "./commands/sinatra-scaffold.md",
+        "./commands/sinatra-review.md",
+        "./commands/sinatra-test.md",
+        "./commands/ruby-optimize.md"
+      ],
+      "skills": [
+        "./skills/sinatra-patterns",
+        "./skills/ruby-patterns",
+        "./skills/sinatra-security",
+        "./skills/rack-middleware"
+      ]
     }
   ]
 }

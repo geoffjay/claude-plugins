@@ -5,8 +5,8 @@ This document catalogs all agent skills with progressive disclosure patterns acr
 ## Overview
 
 - **Total Skills**: 9
-- **Total Plugins**: 3
-- **Last Updated**: 2025-10-20 14:55:44
+- **Total Plugins**: 4
+- **Last Updated**: 2025-10-21 10:25:00
 
 ---
 
@@ -230,6 +230,19 @@ Rack middleware development, configuration, and integration patterns. Use when w
 ---
 
 
+## git
+
+**Description**: Git focused utilities with namespaced commands for advanced workflows
+
+**Version**: 1.0.0
+
+
+*No skills defined*
+
+
+---
+
+
 
 ## Progressive Disclosure Benefits
 
@@ -246,4 +259,4 @@ Skills are automatically invoked by agents when their trigger conditions are met
 ---
 
 *This documentation is automatically generated from the marketplace catalog.*
-*Last updated: 2025-10-20 14:55:44*
+*Last updated: 2025-10-21 10:25:00*

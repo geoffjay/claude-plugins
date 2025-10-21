@@ -5,8 +5,8 @@ This document provides a comprehensive reference of all agents available across 
 ## Overview
 
 - **Total Agents**: 8
-- **Total Plugins**: 3
-- **Last Updated**: 2025-10-20 14:55:44
+- **Total Plugins**: 4
+- **Last Updated**: 2025-10-21 10:25:00
 
 ---
 
@@ -168,6 +168,23 @@ This document provides a comprehensive reference of all agents available across 
 
 
 
+## Utilities Agents
+
+
+### git
+
+**Description**: Git focused utilities with namespaced commands for advanced workflows
+
+**Version**: 1.0.0
+
+
+*No agents defined*
+
+
+---
+
+
+
 
 ## Usage
 
@@ -188,4 +205,4 @@ Agents are optimized for specific models based on their complexity:
 ---
 
 *This documentation is automatically generated from the marketplace catalog.*
-*Last updated: 2025-10-20 14:55:44*
+*Last updated: 2025-10-21 10:25:00*

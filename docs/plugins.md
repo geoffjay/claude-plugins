@@ -4,11 +4,11 @@ Complete catalog of all plugins available in the marketplace.
 
 ## Overview
 
-- **Total Plugins**: 3
+- **Total Plugins**: 4
 - **Total Agents**: 8
-- **Total Commands**: 10
+- **Total Commands**: 19
 - **Total Skills**: 9
-- **Last Updated**: 2025-10-20 14:55:44
+- **Last Updated**: 2025-10-21 10:25:00
 
 ---
 
@@ -135,6 +135,44 @@ Advanced Ruby development tools with a focus on the Sinatra web framework
 
 
 
+## Utilities
+
+
+### git
+
+Git focused utilities with namespaced commands for advanced workflows
+
+**Version**: 1.0.0
+
+**Author**: Geoff Johnson
+
+**License**: MIT
+
+
+**Keywords**: git, version-control, workflow, utilities, rebase, cherry-pick, reflog
+
+
+**Components**:
+
+
+- **Commands**: 9
+
+
+
+**Location**: `./plugins/utilities/git`
+
+
+**Homepage**: https://github.com/geoffjay/claude-plugins
+
+
+
+**Repository**: https://github.com/geoffjay/claude-plugins
+
+
+---
+
+
+
 
 ## Plugin Architecture
 
@@ -163,8 +201,10 @@ Plugins are organized into the following categories:
 
 - **Languages**: 2 plugin(s)
 
+- **Utilities**: 1 plugin(s)
+
 
 ---
 
 *This documentation is automatically generated from the marketplace catalog.*
-*Last updated: 2025-10-20 14:55:44*
+*Last updated: 2025-10-21 10:25:00*

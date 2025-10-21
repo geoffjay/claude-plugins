@@ -4,12 +4,12 @@ Comprehensive guide for using Claude Code plugins, agents, commands, and skills 
 
 ## Overview
 
-This marketplace provides 3 plugin(s) with:
+This marketplace provides 4 plugin(s) with:
 - 8 specialized agent(s)
-- 10 command(s)
+- 19 command(s)
 - 9 skill(s)
 
-**Last Updated**: 2025-10-20 14:55:44
+**Last Updated**: 2025-10-21 10:25:00
 
 ---
 
@@ -78,6 +78,42 @@ Commands are slash commands for specific workflows:
 - `ruby-optimize` - Analyze and optimize Ruby code for performance, memory usage, and idiomatic patterns
   - Plugin: ruby-sinatra-advanced
   - File: `plugins/ruby-sinatra-advanced/commands/ruby-optimize.md`
+
+- `bisect` - 
+  - Plugin: git
+  - File: `plugins/git/commands/bisect.md`
+
+- `commit` - 
+  - Plugin: git
+  - File: `plugins/git/commands/commit.md`
+
+- `worktree` - 
+  - Plugin: git
+  - File: `plugins/git/commands/worktree.md`
+
+- `rebase-interactive` - 
+  - Plugin: git
+  - File: `plugins/git/commands/rebase-interactive.md`
+
+- `stash-manager` - 
+  - Plugin: git
+  - File: `plugins/git/commands/stash-manager.md`
+
+- `branch-cleanup` - 
+  - Plugin: git
+  - File: `plugins/git/commands/branch-cleanup.md`
+
+- `fixup` - 
+  - Plugin: git
+  - File: `plugins/git/commands/fixup.md`
+
+- `cherry-pick-helper` - 
+  - Plugin: git
+  - File: `plugins/git/commands/cherry-pick-helper.md`
+
+- `reflog-recover` - 
+  - Plugin: git
+  - File: `plugins/git/commands/reflog-recover.md`
 
 
 ### Using Skills
@@ -359,6 +395,13 @@ Plugins are organized by category:
 
 
 
+### Utilities
+
+
+- **git** - Git focused utilities with namespaced commands for advanced workflows
+
+
+
 
 ---
 
@@ -380,4 +423,4 @@ Plugins are organized by category:
 ---
 
 *This documentation is automatically generated from the marketplace catalog.*
-*Last updated: 2025-10-20 14:55:44*
+*Last updated: 2025-10-21 10:25:00*

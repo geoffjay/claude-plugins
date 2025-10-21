@@ -97,6 +97,33 @@
         "./skills/sinatra-security",
         "./skills/rack-middleware"
       ]
+    },
+    {
+      "name": "git",
+      "source": "./plugins/utilities/git",
+      "description": "Git focused utilities with namespaced commands for advanced workflows",
+      "version": "1.0.0",
+      "author": {
+        "name": "Geoff Johnson",
+        "url": "https://github.com/geoffjay"
+      },
+      "homepage": "https://github.com/geoffjay/claude-plugins",
+      "repository": "https://github.com/geoffjay/claude-plugins",
+      "license": "MIT",
+      "keywords": ["git", "version-control", "workflow", "utilities", "rebase", "cherry-pick", "reflog"],
+      "category": "utilities",
+      "strict": false,
+      "commands": [
+        "./commands/bisect.md",
+        "./commands/commit.md",
+        "./commands/worktree.md",
+        "./commands/rebase-interactive.md",
+        "./commands/stash-manager.md",
+        "./commands/branch-cleanup.md",
+        "./commands/fixup.md",
+        "./commands/cherry-pick-helper.md",
+        "./commands/reflog-recover.md"
+      ]
     }
   ]
 }

@@ -4,9 +4,9 @@ This document provides a comprehensive reference of all agents available across 
 
 ## Overview
 
-- **Total Agents**: 8
-- **Total Plugins**: 4
-- **Last Updated**: 2025-10-21 10:25:00
+- **Total Agents**: 12
+- **Total Plugins**: 5
+- **Last Updated**: 2025-10-23 15:35:28
 
 ---
 
@@ -30,6 +30,14 @@ This document provides a comprehensive reference of all agents available across 
 - **Model**: `claude-sonnet-4`
 - **Description**: Expert agent for designing and implementing Claude Code plugins following granular, composable architecture principles
 - **Location**: `plugins/claude-plugin/agents/plugin-architect.md`
+
+
+
+
+
+
+
+
 
 
 
@@ -105,6 +113,14 @@ This document provides a comprehensive reference of all agents available across 
 
 
 
+
+
+
+
+
+
+
+
 ---
 
 
@@ -164,6 +180,81 @@ This document provides a comprehensive reference of all agents available across 
 
 
 
+
+
+
+
+
+
+
+
+---
+
+
+### rust-gpui-developer
+
+**Description**: Experienced Rust developer with expertise in user interface development using the gpui crate
+
+**Version**: 1.0.0
+
+
+**Agents**:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#### rust-gpui-pro
+
+- **Model**: `claude-sonnet-4-5`
+- **Description**: Master Rust GPUI framework expert with deep knowledge of UI architecture, state management, component patterns, and performance optimization. Use PROACTIVELY for GPUI development, code review, or architecture decisions.
+- **Location**: `plugins/rust-gpui-developer/agents/rust-gpui-pro.md`
+
+
+
+
+#### gpui-architect
+
+- **Model**: `claude-sonnet-4-5`
+- **Description**: System architect specializing in GPUI application design, component composition patterns, state management strategies, and scalable UI architecture. Use PROACTIVELY for architecture design, system design reviews, or scaling strategies.
+- **Location**: `plugins/rust-gpui-developer/agents/gpui-architect.md`
+
+
+
+
+#### rust-ui-specialist
+
+- **Model**: `claude-sonnet-4-5`
+- **Description**: Rust UI specialist focused on GPUI layout system, styling, theming, responsive design, and reactive patterns. Use PROACTIVELY for UI implementation, styling decisions, or layout optimization.
+- **Location**: `plugins/rust-gpui-developer/agents/rust-ui-specialist.md`
+
+
+
+
+#### gpui-performance
+
+- **Model**: `claude-sonnet-4-5`
+- **Description**: Performance optimization specialist for GPUI applications, focusing on rendering performance, memory management, profiling, and runtime tuning. Use PROACTIVELY for performance optimization, profiling analysis, or benchmark improvements.
+- **Location**: `plugins/rust-gpui-developer/agents/gpui-performance.md`
+
+
+
+
+
 ---
 
 
@@ -205,4 +296,4 @@ Agents are optimized for specific models based on their complexity:
 ---
 
 *This documentation is automatically generated from the marketplace catalog.*
-*Last updated: 2025-10-21 10:25:00*
+*Last updated: 2025-10-23 15:35:28*

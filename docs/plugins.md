@@ -4,11 +4,11 @@ Complete catalog of all plugins available in the marketplace.
 
 ## Overview
 
-- **Total Plugins**: 4
-- **Total Agents**: 8
-- **Total Commands**: 19
-- **Total Skills**: 9
-- **Last Updated**: 2025-10-21 10:25:00
+- **Total Plugins**: 5
+- **Total Agents**: 12
+- **Total Commands**: 23
+- **Total Skills**: 17
+- **Last Updated**: 2025-10-23 15:35:28
 
 ---
 
@@ -134,6 +134,44 @@ Advanced Ruby development tools with a focus on the Sinatra web framework
 ---
 
 
+### rust-gpui-developer
+
+Experienced Rust developer with expertise in user interface development using the gpui crate
+
+**Version**: 1.0.0
+
+**Author**: Geoff Johnson
+
+**License**: MIT
+
+
+**Keywords**: rust, gpui, ui, gui, interface, framework, zed
+
+
+**Components**:
+
+- **Agents**: 4
+
+
+- **Commands**: 4
+
+
+- **Skills**: 4
+
+
+**Location**: `./plugins/rust-gpui-developer`
+
+
+**Homepage**: https://github.com/geoffjay/claude-plugins
+
+
+
+**Repository**: https://github.com/geoffjay/claude-plugins
+
+
+---
+
+
 
 ## Utilities
 
@@ -157,6 +195,8 @@ Git focused utilities with namespaced commands for advanced workflows
 
 - **Commands**: 9
 
+
+- **Skills**: 4
 
 
 **Location**: `./plugins/utilities/git`
@@ -199,7 +239,7 @@ Plugins are organized into the following categories:
 
 - **Plugin-Management**: 1 plugin(s)
 
-- **Languages**: 2 plugin(s)
+- **Languages**: 3 plugin(s)
 
 - **Utilities**: 1 plugin(s)
 
@@ -207,4 +247,4 @@ Plugins are organized into the following categories:
 ---
 
 *This documentation is automatically generated from the marketplace catalog.*
-*Last updated: 2025-10-21 10:25:00*
+*Last updated: 2025-10-23 15:35:28*

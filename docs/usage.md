@@ -4,12 +4,12 @@ Comprehensive guide for using Claude Code plugins, agents, commands, and skills 
 
 ## Overview
 
-This marketplace provides 4 plugin(s) with:
-- 8 specialized agent(s)
-- 19 command(s)
-- 9 skill(s)
+This marketplace provides 5 plugin(s) with:
+- 12 specialized agent(s)
+- 23 command(s)
+- 17 skill(s)
 
-**Last Updated**: 2025-10-21 10:25:00
+**Last Updated**: 2025-10-23 15:35:28
 
 ---
 
@@ -115,6 +115,22 @@ Commands are slash commands for specific workflows:
   - Plugin: git
   - File: `plugins/git/commands/reflog-recover.md`
 
+- `gpui-scaffold` - Scaffold new GPUI applications with modern structure, Cargo workspace setup, component organization, and best practices
+  - Plugin: rust-gpui-developer
+  - File: `plugins/rust-gpui-developer/commands/gpui-scaffold.md`
+
+- `gpui-review` - Review GPUI code for idiomatic patterns, performance issues, state management correctness, and framework best practices
+  - Plugin: rust-gpui-developer
+  - File: `plugins/rust-gpui-developer/commands/gpui-review.md`
+
+- `gpui-test` - Generate comprehensive tests for GPUI components, views, state management, and user interactions
+  - Plugin: rust-gpui-developer
+  - File: `plugins/rust-gpui-developer/commands/gpui-test.md`
+
+- `gpui-component` - Generate reusable GPUI components with proper typing, state management, styling, and documentation
+  - Plugin: rust-gpui-developer
+  - File: `plugins/rust-gpui-developer/commands/gpui-component.md`
+
 
 ### Using Skills
 
@@ -162,6 +178,38 @@ Skills are automatically invoked by agents when their trigger conditions are met
 - `rack-middleware` - Rack middleware development, configuration, and integration patterns. Use when working with middleware stacks or creating custom middleware.
   - Plugin: ruby-sinatra-advanced
   - Path: `plugins/ruby-sinatra-advanced/skills/rack-middleware/`
+
+- `git-conventions` - 
+  - Plugin: git
+  - Path: `plugins/git/skills/git-conventions/`
+
+- `git-advanced` - 
+  - Plugin: git
+  - Path: `plugins/git/skills/git-advanced/`
+
+- `git-troubleshooting` - 
+  - Plugin: git
+  - Path: `plugins/git/skills/git-troubleshooting/`
+
+- `git-repository` - 
+  - Plugin: git
+  - Path: `plugins/git/skills/git-repository/`
+
+- `gpui-patterns` - Common GPUI patterns including component composition, state management strategies, event handling, and action dispatching. Use when user needs guidance on GPUI patterns, component design, or state management approaches.
+  - Plugin: rust-gpui-developer
+  - Path: `plugins/rust-gpui-developer/skills/gpui-patterns/`
+
+- `gpui-styling` - GPUI styling system including theme design, responsive layouts, visual design patterns, and style composition. Use when user needs help with styling, theming, or visual design in GPUI.
+  - Plugin: rust-gpui-developer
+  - Path: `plugins/rust-gpui-developer/skills/gpui-styling/`
+
+- `gpui-performance` - Performance optimization techniques for GPUI including rendering optimization, layout performance, memory management, and profiling strategies. Use when user needs to optimize GPUI application performance or debug performance issues.
+  - Plugin: rust-gpui-developer
+  - Path: `plugins/rust-gpui-developer/skills/gpui-performance/`
+
+- `rust-ui-architecture` - Architecture patterns for Rust UI applications including GPUI-specific patterns, code organization, modularity, and scalability. Use when user needs guidance on application architecture, code organization, or scaling UI applications.
+  - Plugin: rust-gpui-developer
+  - Path: `plugins/rust-gpui-developer/skills/rust-ui-architecture/`
 
 
 ---
@@ -306,6 +354,38 @@ Each plugin must have:
 - **Invocation**: `Use Task tool with subagent_type="sinatra-architect"`
 
 
+#### rust-gpui-pro
+
+- **Plugin**: rust-gpui-developer
+- **Model**: claude-sonnet-4-5
+- **Description**: Master Rust GPUI framework expert with deep knowledge of UI architecture, state management, component patterns, and performance optimization. Use PROACTIVELY for GPUI development, code review, or architecture decisions.
+- **Invocation**: `Use Task tool with subagent_type="rust-gpui-pro"`
+
+
+#### gpui-architect
+
+- **Plugin**: rust-gpui-developer
+- **Model**: claude-sonnet-4-5
+- **Description**: System architect specializing in GPUI application design, component composition patterns, state management strategies, and scalable UI architecture. Use PROACTIVELY for architecture design, system design reviews, or scaling strategies.
+- **Invocation**: `Use Task tool with subagent_type="gpui-architect"`
+
+
+#### rust-ui-specialist
+
+- **Plugin**: rust-gpui-developer
+- **Model**: claude-sonnet-4-5
+- **Description**: Rust UI specialist focused on GPUI layout system, styling, theming, responsive design, and reactive patterns. Use PROACTIVELY for UI implementation, styling decisions, or layout optimization.
+- **Invocation**: `Use Task tool with subagent_type="rust-ui-specialist"`
+
+
+#### gpui-performance
+
+- **Plugin**: rust-gpui-developer
+- **Model**: claude-sonnet-4-5
+- **Description**: Performance optimization specialist for GPUI applications, focusing on rendering performance, memory management, profiling, and runtime tuning. Use PROACTIVELY for performance optimization, profiling analysis, or benchmark improvements.
+- **Invocation**: `Use Task tool with subagent_type="gpui-performance"`
+
+
 
 ### Model Selection
 
@@ -393,6 +473,8 @@ Plugins are organized by category:
 
 - **ruby-sinatra-advanced** - Advanced Ruby development tools with a focus on the Sinatra web framework
 
+- **rust-gpui-developer** - Experienced Rust developer with expertise in user interface development using the gpui crate
+
 
 
 ### Utilities
@@ -423,4 +505,4 @@ Plugins are organized by category:
 ---
 
 *This documentation is automatically generated from the marketplace catalog.*
-*Last updated: 2025-10-21 10:25:00*
+*Last updated: 2025-10-23 15:35:28*

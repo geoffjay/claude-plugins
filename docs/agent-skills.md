@@ -4,9 +4,9 @@ This document catalogs all agent skills with progressive disclosure patterns acr
 
 ## Overview
 
-- **Total Skills**: 9
-- **Total Plugins**: 4
-- **Last Updated**: 2025-10-21 10:25:00
+- **Total Skills**: 17
+- **Total Plugins**: 5
+- **Last Updated**: 2025-10-23 15:35:28
 
 ---
 
@@ -58,6 +58,22 @@ Regenerates documentation files (agents.md, agent-skills.md, plugins.md, usage.m
 - `SKILL.md` - Skill definition with frontmatter
 - `assets/` - Templates, configurations, examples
 - `references/` - Additional documentation
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -133,6 +149,22 @@ Performance optimization techniques including profiling, memory management, benc
 - `SKILL.md` - Skill definition with frontmatter
 - `assets/` - Templates, configurations, examples
 - `references/` - Additional documentation
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -227,6 +259,22 @@ Rack middleware development, configuration, and integration patterns. Use when w
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ---
 
 
@@ -237,7 +285,188 @@ Rack middleware development, configuration, and integration patterns. Use when w
 **Version**: 1.0.0
 
 
-*No skills defined*
+**Skills**:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### git-conventions
+
+
+
+**Location**: `plugins/git/skills/git-conventions/`
+
+**Structure**:
+- `SKILL.md` - Skill definition with frontmatter
+- `assets/` - Templates, configurations, examples
+- `references/` - Additional documentation
+
+
+
+
+### git-advanced
+
+
+
+**Location**: `plugins/git/skills/git-advanced/`
+
+**Structure**:
+- `SKILL.md` - Skill definition with frontmatter
+- `assets/` - Templates, configurations, examples
+- `references/` - Additional documentation
+
+
+
+
+### git-troubleshooting
+
+
+
+**Location**: `plugins/git/skills/git-troubleshooting/`
+
+**Structure**:
+- `SKILL.md` - Skill definition with frontmatter
+- `assets/` - Templates, configurations, examples
+- `references/` - Additional documentation
+
+
+
+
+### git-repository
+
+
+
+**Location**: `plugins/git/skills/git-repository/`
+
+**Structure**:
+- `SKILL.md` - Skill definition with frontmatter
+- `assets/` - Templates, configurations, examples
+- `references/` - Additional documentation
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
+
+
+## rust-gpui-developer
+
+**Description**: Experienced Rust developer with expertise in user interface development using the gpui crate
+
+**Version**: 1.0.0
+
+
+**Skills**:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### gpui-patterns
+
+Common GPUI patterns including component composition, state management strategies, event handling, and action dispatching. Use when user needs guidance on GPUI patterns, component design, or state management approaches.
+
+**Location**: `plugins/rust-gpui-developer/skills/gpui-patterns/`
+
+**Structure**:
+- `SKILL.md` - Skill definition with frontmatter
+- `assets/` - Templates, configurations, examples
+- `references/` - Additional documentation
+
+
+
+
+### gpui-styling
+
+GPUI styling system including theme design, responsive layouts, visual design patterns, and style composition. Use when user needs help with styling, theming, or visual design in GPUI.
+
+**Location**: `plugins/rust-gpui-developer/skills/gpui-styling/`
+
+**Structure**:
+- `SKILL.md` - Skill definition with frontmatter
+- `assets/` - Templates, configurations, examples
+- `references/` - Additional documentation
+
+
+
+
+### gpui-performance
+
+Performance optimization techniques for GPUI including rendering optimization, layout performance, memory management, and profiling strategies. Use when user needs to optimize GPUI application performance or debug performance issues.
+
+**Location**: `plugins/rust-gpui-developer/skills/gpui-performance/`
+
+**Structure**:
+- `SKILL.md` - Skill definition with frontmatter
+- `assets/` - Templates, configurations, examples
+- `references/` - Additional documentation
+
+
+
+
+### rust-ui-architecture
+
+Architecture patterns for Rust UI applications including GPUI-specific patterns, code organization, modularity, and scalability. Use when user needs guidance on application architecture, code organization, or scaling UI applications.
+
+**Location**: `plugins/rust-gpui-developer/skills/rust-ui-architecture/`
+
+**Structure**:
+- `SKILL.md` - Skill definition with frontmatter
+- `assets/` - Templates, configurations, examples
+- `references/` - Additional documentation
+
+
+
 
 
 ---
@@ -259,4 +488,4 @@ Skills are automatically invoked by agents when their trigger conditions are met
 ---
 
 *This documentation is automatically generated from the marketplace catalog.*
-*Last updated: 2025-10-21 10:25:00*
+*Last updated: 2025-10-23 15:35:28*

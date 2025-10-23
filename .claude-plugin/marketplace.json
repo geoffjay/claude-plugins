@@ -123,6 +123,46 @@
         "./commands/fixup.md",
         "./commands/cherry-pick-helper.md",
         "./commands/reflog-recover.md"
+      ],
+      "skills": [
+        "./skills/git-conventions",
+        "./skills/git-advanced",
+        "./skills/git-troubleshooting",
+        "./skills/git-repository"
+      ]
+    },
+    {
+      "name": "rust-gpui-developer",
+      "source": "./plugins/rust-gpui-developer",
+      "description": "Experienced Rust developer with expertise in user interface development using the gpui crate",
+      "version": "1.0.0",
+      "author": {
+        "name": "Geoff Johnson",
+        "url": "https://github.com/geoffjay"
+      },
+      "homepage": "https://github.com/geoffjay/claude-plugins",
+      "repository": "https://github.com/geoffjay/claude-plugins",
+      "license": "MIT",
+      "keywords": ["rust", "gpui", "ui", "gui", "interface", "framework", "zed"],
+      "category": "languages",
+      "strict": false,
+      "agents": [
+        "./agents/rust-gpui-pro.md",
+        "./agents/gpui-architect.md",
+        "./agents/rust-ui-specialist.md",
+        "./agents/gpui-performance.md"
+      ],
+      "commands": [
+        "./commands/gpui-scaffold.md",
+        "./commands/gpui-review.md",
+        "./commands/gpui-test.md",
+        "./commands/gpui-component.md"
+      ],
+      "skills": [
+        "./skills/gpui-patterns",
+        "./skills/gpui-styling",
+        "./skills/gpui-performance",
+        "./skills/rust-ui-architecture"
       ]
     }
   ]

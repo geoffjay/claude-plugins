@@ -4,9 +4,9 @@ This document catalogs all agent skills with progressive disclosure patterns acr
 
 ## Overview
 
-- **Total Skills**: 17
-- **Total Plugins**: 5
-- **Last Updated**: 2025-10-23 15:35:28
+- **Total Skills**: 25
+- **Total Plugins**: 7
+- **Last Updated**: 2025-11-04 11:27:39
 
 ---
 
@@ -58,6 +58,22 @@ Regenerates documentation files (agents.md, agent-skills.md, plugins.md, usage.m
 - `SKILL.md` - Skill definition with frontmatter
 - `assets/` - Templates, configurations, examples
 - `references/` - Additional documentation
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -149,6 +165,22 @@ Performance optimization techniques including profiling, memory management, benc
 - `SKILL.md` - Skill definition with frontmatter
 - `assets/` - Templates, configurations, examples
 - `references/` - Additional documentation
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -275,6 +307,22 @@ Rack middleware development, configuration, and integration patterns. Use when w
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ---
 
 
@@ -359,6 +407,22 @@ Rack middleware development, configuration, and integration patterns. Use when w
 - `SKILL.md` - Skill definition with frontmatter
 - `assets/` - Templates, configurations, examples
 - `references/` - Additional documentation
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -469,6 +533,248 @@ Architecture patterns for Rust UI applications including GPUI-specific patterns,
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
+
+
+## rust-tokio-expert
+
+**Description**: Experienced Rust developer with expertise in building reliable network applications using the Tokio library and its associated stack
+
+**Version**: 1.0.0
+
+
+**Skills**:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### tokio-patterns
+
+Common Tokio patterns and idioms for async programming. Use when implementing worker pools, request-response patterns, pub/sub, timeouts, retries, or graceful shutdown.
+
+**Location**: `plugins/rust-tokio-expert/skills/tokio-patterns/`
+
+**Structure**:
+- `SKILL.md` - Skill definition with frontmatter
+- `assets/` - Templates, configurations, examples
+- `references/` - Additional documentation
+
+
+
+
+### tokio-concurrency
+
+Advanced concurrency patterns for Tokio including fan-out/fan-in, pipeline processing, rate limiting, and coordinated shutdown. Use when building high-concurrency async systems.
+
+**Location**: `plugins/rust-tokio-expert/skills/tokio-concurrency/`
+
+**Structure**:
+- `SKILL.md` - Skill definition with frontmatter
+- `assets/` - Templates, configurations, examples
+- `references/` - Additional documentation
+
+
+
+
+### tokio-networking
+
+Network programming patterns with Hyper, Tonic, and Tower. Use when building HTTP services, gRPC applications, implementing middleware, connection pooling, or health checks.
+
+**Location**: `plugins/rust-tokio-expert/skills/tokio-networking/`
+
+**Structure**:
+- `SKILL.md` - Skill definition with frontmatter
+- `assets/` - Templates, configurations, examples
+- `references/` - Additional documentation
+
+
+
+
+### tokio-troubleshooting
+
+Debugging and troubleshooting Tokio applications using tokio-console, detecting deadlocks, memory leaks, and performance issues. Use when diagnosing async runtime problems.
+
+**Location**: `plugins/rust-tokio-expert/skills/tokio-troubleshooting/`
+
+**Structure**:
+- `SKILL.md` - Skill definition with frontmatter
+- `assets/` - Templates, configurations, examples
+- `references/` - Additional documentation
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
+
+
+## rust-cli-developer
+
+**Description**: Experienced Rust developer with expertise in building delightful CLI applications using Clap and the Rust CLI ecosystem
+
+**Version**: 1.0.0
+
+
+**Skills**:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### clap-patterns
+
+Common Clap patterns and idioms for argument parsing, validation, and CLI design. Use when implementing CLI arguments with Clap v4+.
+
+**Location**: `plugins/rust-cli-developer/skills/clap-patterns/`
+
+**Structure**:
+- `SKILL.md` - Skill definition with frontmatter
+- `assets/` - Templates, configurations, examples
+- `references/` - Additional documentation
+
+
+
+
+### cli-ux-patterns
+
+CLI user experience best practices for error messages, colors, progress indicators, and output formatting. Use when improving CLI usability and user experience.
+
+**Location**: `plugins/rust-cli-developer/skills/cli-ux-patterns/`
+
+**Structure**:
+- `SKILL.md` - Skill definition with frontmatter
+- `assets/` - Templates, configurations, examples
+- `references/` - Additional documentation
+
+
+
+
+### cli-configuration
+
+Configuration management patterns including file formats, precedence, environment variables, and XDG directories. Use when implementing configuration systems for CLI applications.
+
+**Location**: `plugins/rust-cli-developer/skills/cli-configuration/`
+
+**Structure**:
+- `SKILL.md` - Skill definition with frontmatter
+- `assets/` - Templates, configurations, examples
+- `references/` - Additional documentation
+
+
+
+
+### cli-distribution
+
+Distribution and packaging patterns including shell completions, man pages, cross-compilation, and release automation. Use when preparing CLI tools for distribution.
+
+**Location**: `plugins/rust-cli-developer/skills/cli-distribution/`
+
+**Structure**:
+- `SKILL.md` - Skill definition with frontmatter
+- `assets/` - Templates, configurations, examples
+- `references/` - Additional documentation
+
+
+
+
+
 ---
 
 
@@ -488,4 +794,4 @@ Skills are automatically invoked by agents when their trigger conditions are met
 ---
 
 *This documentation is automatically generated from the marketplace catalog.*
-*Last updated: 2025-10-23 15:35:28*
+*Last updated: 2025-11-04 11:27:39*

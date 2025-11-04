@@ -22,16 +22,26 @@
       "homepage": "https://github.com/geoffjay/claude-plugins",
       "repository": "https://github.com/geoffjay/claude-plugins",
       "license": "MIT",
-      "keywords": ["plugin", "scaffolding", "marketplace", "documentation"],
+      "keywords": [
+        "plugin",
+        "scaffolding",
+        "marketplace",
+        "documentation"
+      ],
       "category": "plugin-management",
       "strict": false,
-      "agents": ["./agents/plugin-architect.md"],
+      "agents": [
+        "./agents/plugin-architect.md"
+      ],
       "commands": [
         "./commands/create.md",
         "./commands/update.md",
         "./commands/documentation.md"
       ],
-      "skills": ["./skills/marketplace-update", "./skills/documentation-update"]
+      "skills": [
+        "./skills/marketplace-update",
+        "./skills/documentation-update"
+      ]
     },
     {
       "name": "golang-development",
@@ -45,7 +55,14 @@
       "homepage": "https://github.com/geoffjay/claude-plugins",
       "repository": "https://github.com/geoffjay/claude-plugins",
       "license": "MIT",
-      "keywords": ["golang", "go", "development", "patterns", "performance", "concurrency"],
+      "keywords": [
+        "golang",
+        "go",
+        "development",
+        "patterns",
+        "performance",
+        "concurrency"
+      ],
       "category": "languages",
       "strict": false,
       "agents": [
@@ -76,7 +93,14 @@
       "homepage": "https://github.com/geoffjay/claude-plugins",
       "repository": "https://github.com/geoffjay/claude-plugins",
       "license": "MIT",
-      "keywords": ["ruby", "sinatra", "rack", "web-framework", "api", "microservices"],
+      "keywords": [
+        "ruby",
+        "sinatra",
+        "rack",
+        "web-framework",
+        "api",
+        "microservices"
+      ],
       "category": "languages",
       "strict": false,
       "agents": [
@@ -110,7 +134,15 @@
       "homepage": "https://github.com/geoffjay/claude-plugins",
       "repository": "https://github.com/geoffjay/claude-plugins",
       "license": "MIT",
-      "keywords": ["git", "version-control", "workflow", "utilities", "rebase", "cherry-pick", "reflog"],
+      "keywords": [
+        "git",
+        "version-control",
+        "workflow",
+        "utilities",
+        "rebase",
+        "cherry-pick",
+        "reflog"
+      ],
       "category": "utilities",
       "strict": false,
       "commands": [
@@ -143,14 +175,23 @@
       "homepage": "https://github.com/geoffjay/claude-plugins",
       "repository": "https://github.com/geoffjay/claude-plugins",
       "license": "MIT",
-      "keywords": ["rust", "gpui", "ui", "gui", "interface", "framework", "zed"],
+      "keywords": [
+        "rust",
+        "gpui",
+        "ui",
+        "gui",
+        "interface",
+        "framework",
+        "zed"
+      ],
       "category": "languages",
       "strict": false,
       "agents": [
         "./agents/rust-gpui-pro.md",
         "./agents/gpui-architect.md",
         "./agents/rust-ui-specialist.md",
-        "./agents/gpui-performance.md"
+        "./agents/gpui-performance.md",
+        "./agents/gpui-router-specialist.md"
       ],
       "commands": [
         "./commands/gpui-scaffold.md",
@@ -163,6 +204,93 @@
         "./skills/gpui-styling",
         "./skills/gpui-performance",
         "./skills/rust-ui-architecture"
+      ]
+    },
+    {
+      "name": "rust-tokio-expert",
+      "source": "./plugins/rust-tokio-expert",
+      "description": "Experienced Rust developer with expertise in building reliable network applications using the Tokio library and its associated stack",
+      "version": "1.0.0",
+      "author": {
+        "name": "Geoff Johnson",
+        "url": "https://github.com/geoffjay"
+      },
+      "homepage": "https://github.com/geoffjay/claude-plugins",
+      "repository": "https://github.com/geoffjay/claude-plugins",
+      "license": "MIT",
+      "keywords": [
+        "rust",
+        "tokio",
+        "async",
+        "networking",
+        "hyper",
+        "tonic",
+        "tower",
+        "grpc",
+        "http"
+      ],
+      "category": "languages",
+      "strict": false,
+      "agents": [
+        "./agents/tokio-pro.md",
+        "./agents/tokio-network-specialist.md",
+        "./agents/tokio-performance.md",
+        "./agents/tokio-architect.md"
+      ],
+      "commands": [
+        "./commands/tokio-scaffold.md",
+        "./commands/tokio-review.md",
+        "./commands/tokio-test.md",
+        "./commands/tokio-migrate.md"
+      ],
+      "skills": [
+        "./skills/tokio-patterns",
+        "./skills/tokio-concurrency",
+        "./skills/tokio-networking",
+        "./skills/tokio-troubleshooting"
+      ]
+    },
+    {
+      "name": "rust-cli-developer",
+      "source": "./plugins/rust-cli-developer",
+      "description": "Experienced Rust developer with expertise in building delightful CLI applications using Clap and the Rust CLI ecosystem",
+      "version": "1.0.0",
+      "author": {
+        "name": "Geoff Johnson",
+        "url": "https://github.com/geoffjay"
+      },
+      "homepage": "https://github.com/geoffjay/claude-plugins",
+      "repository": "https://github.com/geoffjay/claude-plugins",
+      "license": "MIT",
+      "keywords": [
+        "rust",
+        "cli",
+        "clap",
+        "command-line",
+        "terminal",
+        "tui",
+        "ux",
+        "testing"
+      ],
+      "category": "languages",
+      "strict": false,
+      "agents": [
+        "./agents/clap-expert.md",
+        "./agents/cli-ux-specialist.md",
+        "./agents/cli-architect.md",
+        "./agents/cli-testing-expert.md"
+      ],
+      "commands": [
+        "./commands/cli-scaffold.md",
+        "./commands/cli-review.md",
+        "./commands/cli-test.md",
+        "./commands/cli-enhance.md"
+      ],
+      "skills": [
+        "./skills/clap-patterns",
+        "./skills/cli-ux-patterns",
+        "./skills/cli-configuration",
+        "./skills/cli-distribution"
       ]
     }
   ]

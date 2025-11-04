@@ -4,12 +4,12 @@ Comprehensive guide for using Claude Code plugins, agents, commands, and skills 
 
 ## Overview
 
-This marketplace provides 5 plugin(s) with:
-- 12 specialized agent(s)
-- 23 command(s)
-- 17 skill(s)
+This marketplace provides 7 plugin(s) with:
+- 21 specialized agent(s)
+- 31 command(s)
+- 25 skill(s)
 
-**Last Updated**: 2025-10-23 15:35:28
+**Last Updated**: 2025-11-04 11:27:39
 
 ---
 
@@ -131,6 +131,38 @@ Commands are slash commands for specific workflows:
   - Plugin: rust-gpui-developer
   - File: `plugins/rust-gpui-developer/commands/gpui-component.md`
 
+- `tokio-scaffold` - Scaffold new Tokio projects with proper structure and best practices
+  - Plugin: rust-tokio-expert
+  - File: `plugins/rust-tokio-expert/commands/tokio-scaffold.md`
+
+- `tokio-review` - Review Tokio code for async anti-patterns, performance issues, and best practices
+  - Plugin: rust-tokio-expert
+  - File: `plugins/rust-tokio-expert/commands/tokio-review.md`
+
+- `tokio-test` - Generate comprehensive async tests for Tokio applications
+  - Plugin: rust-tokio-expert
+  - File: `plugins/rust-tokio-expert/commands/tokio-test.md`
+
+- `tokio-migrate` - Migrate synchronous code to async Tokio or upgrade between Tokio versions
+  - Plugin: rust-tokio-expert
+  - File: `plugins/rust-tokio-expert/commands/tokio-migrate.md`
+
+- `cli-scaffold` - Scaffold new Rust CLI projects with Clap, error handling, logging, and testing setup
+  - Plugin: rust-cli-developer
+  - File: `plugins/rust-cli-developer/commands/cli-scaffold.md`
+
+- `cli-review` - Review Rust CLI applications for UX, error handling, testing, and cross-platform compatibility
+  - Plugin: rust-cli-developer
+  - File: `plugins/rust-cli-developer/commands/cli-review.md`
+
+- `cli-test` - Generate comprehensive tests for Rust CLI applications including integration, snapshot, and property-based tests
+  - Plugin: rust-cli-developer
+  - File: `plugins/rust-cli-developer/commands/cli-test.md`
+
+- `cli-enhance` - Add features to existing CLI applications like colors, progress bars, shell completions, and better error messages
+  - Plugin: rust-cli-developer
+  - File: `plugins/rust-cli-developer/commands/cli-enhance.md`
+
 
 ### Using Skills
 
@@ -210,6 +242,38 @@ Skills are automatically invoked by agents when their trigger conditions are met
 - `rust-ui-architecture` - Architecture patterns for Rust UI applications including GPUI-specific patterns, code organization, modularity, and scalability. Use when user needs guidance on application architecture, code organization, or scaling UI applications.
   - Plugin: rust-gpui-developer
   - Path: `plugins/rust-gpui-developer/skills/rust-ui-architecture/`
+
+- `tokio-patterns` - Common Tokio patterns and idioms for async programming. Use when implementing worker pools, request-response patterns, pub/sub, timeouts, retries, or graceful shutdown.
+  - Plugin: rust-tokio-expert
+  - Path: `plugins/rust-tokio-expert/skills/tokio-patterns/`
+
+- `tokio-concurrency` - Advanced concurrency patterns for Tokio including fan-out/fan-in, pipeline processing, rate limiting, and coordinated shutdown. Use when building high-concurrency async systems.
+  - Plugin: rust-tokio-expert
+  - Path: `plugins/rust-tokio-expert/skills/tokio-concurrency/`
+
+- `tokio-networking` - Network programming patterns with Hyper, Tonic, and Tower. Use when building HTTP services, gRPC applications, implementing middleware, connection pooling, or health checks.
+  - Plugin: rust-tokio-expert
+  - Path: `plugins/rust-tokio-expert/skills/tokio-networking/`
+
+- `tokio-troubleshooting` - Debugging and troubleshooting Tokio applications using tokio-console, detecting deadlocks, memory leaks, and performance issues. Use when diagnosing async runtime problems.
+  - Plugin: rust-tokio-expert
+  - Path: `plugins/rust-tokio-expert/skills/tokio-troubleshooting/`
+
+- `clap-patterns` - Common Clap patterns and idioms for argument parsing, validation, and CLI design. Use when implementing CLI arguments with Clap v4+.
+  - Plugin: rust-cli-developer
+  - Path: `plugins/rust-cli-developer/skills/clap-patterns/`
+
+- `cli-ux-patterns` - CLI user experience best practices for error messages, colors, progress indicators, and output formatting. Use when improving CLI usability and user experience.
+  - Plugin: rust-cli-developer
+  - Path: `plugins/rust-cli-developer/skills/cli-ux-patterns/`
+
+- `cli-configuration` - Configuration management patterns including file formats, precedence, environment variables, and XDG directories. Use when implementing configuration systems for CLI applications.
+  - Plugin: rust-cli-developer
+  - Path: `plugins/rust-cli-developer/skills/cli-configuration/`
+
+- `cli-distribution` - Distribution and packaging patterns including shell completions, man pages, cross-compilation, and release automation. Use when preparing CLI tools for distribution.
+  - Plugin: rust-cli-developer
+  - Path: `plugins/rust-cli-developer/skills/cli-distribution/`
 
 
 ---
@@ -386,6 +450,78 @@ Each plugin must have:
 - **Invocation**: `Use Task tool with subagent_type="gpui-performance"`
 
 
+#### gpui-router-specialist
+
+- **Plugin**: rust-gpui-developer
+- **Model**: claude-sonnet-4-5
+- **Description**: Expert in the gpui-router crate for implementing React-Router-inspired navigation patterns in GPUI applications. Specializes in routing architecture, nested routes, dynamic segments, and navigation patterns. Use PROACTIVELY for routing implementation, navigation design, or URL-based state management.
+- **Invocation**: `Use Task tool with subagent_type="gpui-router-specialist"`
+
+
+#### tokio-pro
+
+- **Plugin**: rust-tokio-expert
+- **Model**: claude-sonnet-4-5
+- **Description**: Master Tokio runtime expert for async/await fundamentals, task management, channels, and synchronization
+- **Invocation**: `Use Task tool with subagent_type="tokio-pro"`
+
+
+#### tokio-network-specialist
+
+- **Plugin**: rust-tokio-expert
+- **Model**: claude-sonnet-4-5
+- **Description**: Network programming specialist for Hyper, Tonic, Tower, and Tokio networking
+- **Invocation**: `Use Task tool with subagent_type="tokio-network-specialist"`
+
+
+#### tokio-performance
+
+- **Plugin**: rust-tokio-expert
+- **Model**: claude-sonnet-4-5
+- **Description**: Performance optimization expert for async applications including profiling, benchmarking, and runtime tuning
+- **Invocation**: `Use Task tool with subagent_type="tokio-performance"`
+
+
+#### tokio-architect
+
+- **Plugin**: rust-tokio-expert
+- **Model**: claude-sonnet-4-5
+- **Description**: System architecture specialist for designing scalable async systems with Tokio
+- **Invocation**: `Use Task tool with subagent_type="tokio-architect"`
+
+
+#### clap-expert
+
+- **Plugin**: rust-cli-developer
+- **Model**: claude-sonnet-4-5
+- **Description**: Master Clap library expert for argument parsing and CLI interface design
+- **Invocation**: `Use Task tool with subagent_type="clap-expert"`
+
+
+#### cli-ux-specialist
+
+- **Plugin**: rust-cli-developer
+- **Model**: claude-sonnet-4-5
+- **Description**: CLI user experience expert specializing in error messages, styling, progress indicators, and interactive prompts
+- **Invocation**: `Use Task tool with subagent_type="cli-ux-specialist"`
+
+
+#### cli-architect
+
+- **Plugin**: rust-cli-developer
+- **Model**: claude-sonnet-4-5
+- **Description**: CLI application architecture specialist for structure, error handling, configuration, and cross-platform design
+- **Invocation**: `Use Task tool with subagent_type="cli-architect"`
+
+
+#### cli-testing-expert
+
+- **Plugin**: rust-cli-developer
+- **Model**: claude-sonnet-4-5
+- **Description**: CLI testing specialist covering integration tests, snapshot testing, interactive prompts, and cross-platform testing
+- **Invocation**: `Use Task tool with subagent_type="cli-testing-expert"`
+
+
 
 ### Model Selection
 
@@ -475,6 +611,10 @@ Plugins are organized by category:
 
 - **rust-gpui-developer** - Experienced Rust developer with expertise in user interface development using the gpui crate
 
+- **rust-tokio-expert** - Experienced Rust developer with expertise in building reliable network applications using the Tokio library and its associated stack
+
+- **rust-cli-developer** - Experienced Rust developer with expertise in building delightful CLI applications using Clap and the Rust CLI ecosystem
+
 
 
 ### Utilities
@@ -505,4 +645,4 @@ Plugins are organized by category:
 ---
 
 *This documentation is automatically generated from the marketplace catalog.*
-*Last updated: 2025-10-23 15:35:28*
+*Last updated: 2025-11-04 11:27:39*

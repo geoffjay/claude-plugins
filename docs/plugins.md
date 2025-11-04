@@ -4,11 +4,11 @@ Complete catalog of all plugins available in the marketplace.
 
 ## Overview
 
-- **Total Plugins**: 5
-- **Total Agents**: 12
-- **Total Commands**: 23
-- **Total Skills**: 17
-- **Last Updated**: 2025-10-23 15:35:28
+- **Total Plugins**: 7
+- **Total Agents**: 21
+- **Total Commands**: 31
+- **Total Skills**: 25
+- **Last Updated**: 2025-11-04 11:27:39
 
 ---
 
@@ -150,7 +150,7 @@ Experienced Rust developer with expertise in user interface development using th
 
 **Components**:
 
-- **Agents**: 4
+- **Agents**: 5
 
 
 - **Commands**: 4
@@ -160,6 +160,82 @@ Experienced Rust developer with expertise in user interface development using th
 
 
 **Location**: `./plugins/rust-gpui-developer`
+
+
+**Homepage**: https://github.com/geoffjay/claude-plugins
+
+
+
+**Repository**: https://github.com/geoffjay/claude-plugins
+
+
+---
+
+
+### rust-tokio-expert
+
+Experienced Rust developer with expertise in building reliable network applications using the Tokio library and its associated stack
+
+**Version**: 1.0.0
+
+**Author**: Geoff Johnson
+
+**License**: MIT
+
+
+**Keywords**: rust, tokio, async, networking, hyper, tonic, tower, grpc, http
+
+
+**Components**:
+
+- **Agents**: 4
+
+
+- **Commands**: 4
+
+
+- **Skills**: 4
+
+
+**Location**: `./plugins/rust-tokio-expert`
+
+
+**Homepage**: https://github.com/geoffjay/claude-plugins
+
+
+
+**Repository**: https://github.com/geoffjay/claude-plugins
+
+
+---
+
+
+### rust-cli-developer
+
+Experienced Rust developer with expertise in building delightful CLI applications using Clap and the Rust CLI ecosystem
+
+**Version**: 1.0.0
+
+**Author**: Geoff Johnson
+
+**License**: MIT
+
+
+**Keywords**: rust, cli, clap, command-line, terminal, tui, ux, testing
+
+
+**Components**:
+
+- **Agents**: 4
+
+
+- **Commands**: 4
+
+
+- **Skills**: 4
+
+
+**Location**: `./plugins/rust-cli-developer`
 
 
 **Homepage**: https://github.com/geoffjay/claude-plugins
@@ -239,7 +315,7 @@ Plugins are organized into the following categories:
 
 - **Plugin-Management**: 1 plugin(s)
 
-- **Languages**: 3 plugin(s)
+- **Languages**: 5 plugin(s)
 
 - **Utilities**: 1 plugin(s)
 
@@ -247,4 +323,4 @@ Plugins are organized into the following categories:
 ---
 
 *This documentation is automatically generated from the marketplace catalog.*
-*Last updated: 2025-10-23 15:35:28*
+*Last updated: 2025-11-04 11:27:39*
